@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GO SOPT Android</string>
+    <string name="main_test">Hello World!</string>
 </resources>
