@@ -11,4 +11,9 @@
     <string name="login_pwd_hint">비밀번호를 입력하세요.</string>
     <string name="login_login_btn">LOG IN</string>
     <string name="login_signup_btn">SIGN UP</string>
+
+    <!-- signup -->
+    <string name="signup_mbti">MBTI</string>
+    <string name="signup_mbti_hint">MBTI를 입력하세요.</string>
+    <string name="signup_signup_complete_btn">SIGN UP COMPLETE</string>
 </resources>
