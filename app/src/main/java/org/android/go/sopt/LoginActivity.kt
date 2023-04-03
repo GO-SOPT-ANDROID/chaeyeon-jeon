@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import org.android.go.sopt.databinding.ActivityLoginBinding
 import org.android.go.sopt.util.binding.BindingActivity
-import org.android.go.sopt.util.extension.showSnackbar
+import org.android.go.sopt.util.extension.setOnSingleClickListener
 
 class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_login) {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,8 +14,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
     }
 
     private fun setLoginBtnClickListener() {
-        binding.btnLoginLogin.setOnClickListener {
-            this.showSnackbar(binding.root, "click login button")
+        binding.btnLoginLogin.setOnSingleClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
     }

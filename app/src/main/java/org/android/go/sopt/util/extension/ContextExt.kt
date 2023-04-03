@@ -7,7 +7,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 
-/** hide keyboard from window */
+/** Hide keyboard from window */
 fun Context.hideKeyboard(view: View) {
     val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
