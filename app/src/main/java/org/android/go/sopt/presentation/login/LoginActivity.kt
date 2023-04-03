@@ -1,8 +1,10 @@
-package org.android.go.sopt
+package org.android.go.sopt.presentation.login
 
 import android.content.Intent
 import android.os.Bundle
+import org.android.go.sopt.R
 import org.android.go.sopt.databinding.ActivityLoginBinding
+import org.android.go.sopt.presentation.main.MainActivity
 import org.android.go.sopt.util.binding.BindingActivity
 import org.android.go.sopt.util.extension.setOnSingleClickListener
 
