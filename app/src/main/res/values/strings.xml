@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">GO SOPT Android</string>
+    <!-- common -->
+    <string name="wrong_input_msg">잘못된 입력입니다.</string>
+
     <!-- main -->
     <string name="main_test">Hello World!</string>
 
@@ -11,6 +14,7 @@
     <string name="login_pwd_hint">비밀번호를 입력하세요.</string>
     <string name="login_login_btn">LOG IN</string>
     <string name="login_signup_btn">SIGN UP</string>
+    <string name="login_signup_success_msg">회원가입이 완료되었습니다.</string>
 
     <!-- signup -->
     <string name="signup_mbti_label">MBTI</string>
@@ -20,4 +24,5 @@
     <string name="signup_specialty_hint">특기를 입력하세요.</string>
     <string name="signup_name_label">NAME</string>
     <string name="signup_name_hint">이름을 입력하세요.</string>
+    <string name="login_login_success_msg">로그인에 성공했습니다.</string>
 </resources>
