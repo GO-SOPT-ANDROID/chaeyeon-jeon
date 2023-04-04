@@ -6,9 +6,9 @@ import org.android.go.sopt.util.type.MBTI
 
 @Parcelize
 data class User(
-    val id: String,
-    val pwd: String,
-    val name: String?,
-    val specialty: String?,
-    val mbti: MBTI?
+    val id: String = "",
+    val pwd: String = "",
+    val name: String? = null,
+    val specialty: String? = null,
+    val mbti: MBTI? = null,
 ) : Parcelable

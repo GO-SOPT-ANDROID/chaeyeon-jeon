@@ -2,13 +2,13 @@ package org.android.go.sopt.presentation.signup
 
 import android.app.Activity
 import android.content.Intent
+import android.content.Intent.EXTRA_USER
 import android.os.Bundle
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import org.android.go.sopt.R
 import org.android.go.sopt.databinding.ActivitySignupBinding
 import org.android.go.sopt.presentation.login.LoginActivity
-import org.android.go.sopt.presentation.login.LoginActivity.Companion.EXTRA_SIGNUP_USER
 import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.INVALID_ID_CODE
 import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.INVALID_PWD_CODE
 import org.android.go.sopt.util.UiState.Failure
@@ -39,7 +39,7 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
             when (state) {
                 is Success -> {
                     Intent(this, LoginActivity::class.java).apply {
-                        this.putExtra(EXTRA_SIGNUP_USER, viewModel.getUser())
+                        this.putExtra(EXTRA_USER, viewModel.getUser())
                         setResult(Activity.RESULT_OK, this)
                         finish()
                     }

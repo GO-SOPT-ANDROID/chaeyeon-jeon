@@ -12,7 +12,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor() : ViewModel() {
-    private lateinit var savedUser: User
+    private var _savedUser = User()
+    val savedUser: User
+        get() = _savedUser
 
     private val _loginState = MutableLiveData<UiState>()
     val loginState: LiveData<UiState>
@@ -22,11 +24,11 @@ class LoginViewModel @Inject constructor() : ViewModel() {
     val pwd = MutableLiveData("")
 
     fun setSavedUser(savedUser: User) {
-        this.savedUser = savedUser
+        this._savedUser = savedUser
     }
 
     private fun isValidInput() =
-        !id.value.isNullOrBlank() && id.value == savedUser.id && !pwd.value.isNullOrBlank() && pwd.value == savedUser.pwd
+        !id.value.isNullOrBlank() && id.value == _savedUser.id && !pwd.value.isNullOrBlank() && pwd.value == _savedUser.pwd
 
     fun login() {
         if (!isValidInput()) {

@@ -41,11 +41,11 @@ class SignupViewModel @Inject constructor() : ViewModel() {
 
     fun getUser(): User {
         return User(
-            id.value!!,
-            pwd.value!!,
-            name.value,
-            specialty.value,
-            safeValueOf<MBTI>(mbti.value),
+            id.value!!.trim(),
+            pwd.value!!.trim(),
+            name.value?.trim(),
+            specialty.value?.trim(),
+            safeValueOf<MBTI>(mbti.value?.trim()?.uppercase()),
         )
     }
 

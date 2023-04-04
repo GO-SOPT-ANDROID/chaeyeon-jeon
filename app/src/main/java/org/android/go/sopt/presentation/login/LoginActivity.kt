@@ -2,6 +2,7 @@ package org.android.go.sopt.presentation.login
 
 import android.app.Activity
 import android.content.Intent
+import android.content.Intent.EXTRA_USER
 import android.os.Bundle
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -41,7 +42,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
                     val resultData = result.data ?: return@registerForActivityResult
-                    resultData.getCompatibleParcelableExtra<User>(EXTRA_SIGNUP_USER)?.let { user ->
+                    resultData.getCompatibleParcelableExtra<User>(EXTRA_USER)?.let { user ->
                         viewModel.setSavedUser(user)
                         showSnackbar(binding.root, getString(R.string.login_signup_success_msg))
                     }
@@ -58,15 +59,14 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
             when (state) {
                 is Success -> {
                     showToast(getString(R.string.login_login_success_msg))
-                    startActivity(Intent(this, MainActivity::class.java))
+                    Intent(this, MainActivity::class.java).apply {
+                        this.putExtra(EXTRA_USER, viewModel.savedUser)
+                        startActivity(this)
+                    }
                     finish()
                 }
                 is Failure -> showSnackbar(binding.root, getString(R.string.wrong_input_msg))
             }
         }
-    }
-
-    companion object {
-        const val EXTRA_SIGNUP_USER = "SIGNUP_USER"
     }
 }
