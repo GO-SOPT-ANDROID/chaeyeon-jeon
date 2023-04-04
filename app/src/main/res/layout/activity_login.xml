@@ -80,6 +80,7 @@
             android:id="@+id/btn_login_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="@{()->vm.login()}"
             android:layout_marginTop="40dp"
             android:paddingVertical="12dp"
             android:text="@string/login_login_btn"

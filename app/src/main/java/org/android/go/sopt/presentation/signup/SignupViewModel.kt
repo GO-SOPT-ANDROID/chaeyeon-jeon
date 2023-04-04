@@ -32,7 +32,7 @@ class SignupViewModel @Inject constructor() : ViewModel() {
             _signupState.value = Failure(INVALID_ID_CODE)
             return
         }
-        if (!isValidPwd(id.value)) {
+        if (!isValidPwd(pwd.value)) {
             _signupState.value = Failure(INVALID_PWD_CODE)
             return
         }

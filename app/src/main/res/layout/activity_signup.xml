@@ -140,6 +140,7 @@
             android:paddingVertical="16dp"
             android:text="@string/signup_signup_complete_btn"
             android:textSize="16sp"
+            android:onClick="@{()->vm.signup()}"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/et_signup_mbti" />
     </androidx.constraintlayout.widget.ConstraintLayout>
