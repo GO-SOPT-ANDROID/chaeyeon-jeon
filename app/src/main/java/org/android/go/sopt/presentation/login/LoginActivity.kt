@@ -14,7 +14,6 @@ import org.android.go.sopt.presentation.main.MainActivity
 import org.android.go.sopt.presentation.signup.SignupActivity
 import org.android.go.sopt.util.binding.BindingActivity
 import org.android.go.sopt.util.extension.* // ktlint-disable no-wildcard-imports
-import timber.log.Timber
 
 @AndroidEntryPoint
 class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_login) {
@@ -52,8 +51,8 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
                     val resultData = result.data ?: return@registerForActivityResult
-                    resultData.getCompatibleParcelableExtra<User>("user")?.let { userData ->
-                        viewModel.setSavedUser(userData)
+                    resultData.getCompatibleParcelableExtra<User>(EXTRA_SIGNUP_USER)?.let { user ->
+                        viewModel.setSavedUser(user)
                         showSnackbar(binding.root, getString(R.string.login_signup_success_msg))
                     }
                 }
@@ -62,5 +61,9 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
         binding.btnLoginSignup.setOnSingleClickListener {
             signupResultLauncher.launch(Intent(this, SignupActivity::class.java))
         }
+    }
+
+    companion object {
+        const val EXTRA_SIGNUP_USER = "SIGNUP_USER"
     }
 }
