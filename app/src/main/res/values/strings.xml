@@ -3,15 +3,12 @@
     <!-- common -->
     <string name="wrong_input_msg">잘못된 입력입니다.</string>
 
-    <!-- main -->
-    <string name="main_test">Hello World!</string>
-
     <!-- login -->
     <string name="login_welcome_msg">Welcome to GO Android!</string>
     <string name="login_id_label">ID</string>
-    <string name="login_id_hint">아이디를 입력하세요.</string>
+    <string name="login_id_hint">아이디를 입력하세요. (6~10자)</string>
     <string name="login_pwd_label">PASSWORD</string>
-    <string name="login_pwd_hint">비밀번호를 입력하세요.</string>
+    <string name="login_pwd_hint">비밀번호를 입력하세요. (8~12자)</string>
     <string name="login_login_btn">LOG IN</string>
     <string name="login_signup_btn">SIGN UP</string>
     <string name="login_signup_success_msg">회원가입이 완료되었습니다.</string>
@@ -27,4 +24,9 @@
     <string name="signup_name_hint">이름을 입력하세요.</string>
     <string name="signup_invalid_id_msg">잘못된 아이디입니다.</string>
     <string name="signup_invalid_pwd_msg">잘못된 비밀번호입니다.</string>
+
+    <!-- main -->
+    <string name="main_name">이름 : %s</string>
+    <string name="main_specialty">특기 : %s</string>
+    <string name="main_mbti">MBTI : %s</string>
 </resources>
