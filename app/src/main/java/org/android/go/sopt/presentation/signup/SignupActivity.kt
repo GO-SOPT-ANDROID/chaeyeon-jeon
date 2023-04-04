@@ -31,7 +31,11 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
     }
 
     private fun initLayout() {
-        binding.layoutSignup.setOnSingleClickListener { hideKeyboard() }
+        with(binding) {
+            layoutSignup.setOnSingleClickListener { hideKeyboard() }
+            svSignup.setOnSingleClickListener { hideKeyboard() }
+            layoutSignupQuestion.setOnSingleClickListener { hideKeyboard() }
+        }
     }
 
     private fun setupSignupState() {

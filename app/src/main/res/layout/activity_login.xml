@@ -78,25 +78,32 @@
 
         <Button
             android:id="@+id/btn_login_login"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:onClick="@{()->vm.login()}"
-            android:layout_marginTop="40dp"
-            android:paddingVertical="12dp"
+            android:paddingVertical="16dp"
             android:text="@string/login_login_btn"
             android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/et_login_pwd" />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btn_login_signup"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:paddingVertical="12dp"
+            android:paddingVertical="16dp"
             android:text="@string/login_signup_btn"
             android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/btn_login_login" />
+            android:textStyle="bold" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flow_login_sign_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal"
+            app:constraint_referenced_ids="btn_login_login,btn_login_signup"
+            app:flow_horizontalGap="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
