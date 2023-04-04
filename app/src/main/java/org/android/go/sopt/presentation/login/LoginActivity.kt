@@ -12,6 +12,8 @@ import org.android.go.sopt.data.User
 import org.android.go.sopt.databinding.ActivityLoginBinding
 import org.android.go.sopt.presentation.main.MainActivity
 import org.android.go.sopt.presentation.signup.SignupActivity
+import org.android.go.sopt.util.UiState.Failure
+import org.android.go.sopt.util.UiState.Success
 import org.android.go.sopt.util.binding.BindingActivity
 import org.android.go.sopt.util.extension.* // ktlint-disable no-wildcard-imports
 
@@ -26,24 +28,12 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
         binding.vm = viewModel
 
         initLayout()
-        initLoginBtnClickListener()
         initSignupBtnClickListener()
+        setupLoginState()
     }
 
     private fun initLayout() {
         binding.layoutLogin.setOnSingleClickListener { hideKeyboard() }
-    }
-
-    private fun initLoginBtnClickListener() {
-        binding.btnLoginLogin.setOnSingleClickListener {
-            if (viewModel.isValidInput()) {
-                showToast(getString(R.string.login_login_success_msg))
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-                return@setOnSingleClickListener
-            }
-            showSnackbar(binding.root, getString(R.string.wrong_input_msg))
-        }
     }
 
     private fun initSignupBtnClickListener() {
@@ -60,6 +50,19 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
 
         binding.btnLoginSignup.setOnSingleClickListener {
             signupResultLauncher.launch(Intent(this, SignupActivity::class.java))
+        }
+    }
+
+    private fun setupLoginState() {
+        viewModel.loginState.observe(this) { state ->
+            when (state) {
+                is Success -> {
+                    showToast(getString(R.string.login_login_success_msg))
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                }
+                is Failure -> showSnackbar(binding.root, getString(R.string.wrong_input_msg))
+            }
         }
     }
 
