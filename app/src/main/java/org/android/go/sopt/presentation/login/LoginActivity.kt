@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.content.Intent.EXTRA_USER
 import android.os.Bundle
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,8 +21,6 @@ import org.android.go.sopt.util.extension.* // ktlint-disable no-wildcard-import
 class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_login) {
     private val viewModel by viewModels<LoginViewModel>()
 
-    private lateinit var signupResultLauncher: ActivityResultLauncher<Intent>
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
@@ -38,7 +35,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
     }
 
     private fun initSignupBtnClickListener() {
-        signupResultLauncher =
+        val signupResultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
                     val resultData = result.data ?: return@registerForActivityResult
@@ -59,10 +56,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
             when (state) {
                 is Success -> {
                     showToast(getString(R.string.login_login_success_msg))
-                    Intent(this, MainActivity::class.java).apply {
-                        this.putExtra(EXTRA_USER, viewModel.signedUpUser)
-                        startActivity(this)
-                    }
+                    startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 }
                 is Failure -> showSnackbar(binding.root, getString(R.string.wrong_input_msg))

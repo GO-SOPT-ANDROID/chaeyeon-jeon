@@ -5,13 +5,16 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.android.go.sopt.data.entity.User
+import org.android.go.sopt.domain.AuthRepository
 import org.android.go.sopt.util.UiState
 import org.android.go.sopt.util.UiState.Failure
 import org.android.go.sopt.util.UiState.Success
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor() : ViewModel() {
+class LoginViewModel @Inject constructor(
+    private val authRepository: AuthRepository,
+) : ViewModel() {
     var signedUpUser = User()
 
     private val _loginState = MutableLiveData<UiState>()
@@ -20,6 +23,14 @@ class LoginViewModel @Inject constructor() : ViewModel() {
 
     val id = MutableLiveData("")
     val pwd = MutableLiveData("")
+
+    init {
+        checkAutoLogin()
+    }
+
+    private fun checkAutoLogin() {
+        if (authRepository.getAutoLogin()) _loginState.value = Success
+    }
 
     fun setSavedUser(savedUser: User) {
         this.signedUpUser = savedUser
@@ -31,6 +42,7 @@ class LoginViewModel @Inject constructor() : ViewModel() {
     fun login() {
         if (!isValidInput()) {
             _loginState.value = Failure(null)
+            authRepository.setAutoLogin(true)
             return
         }
         _loginState.value = Success
