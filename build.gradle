@@ -13,6 +13,12 @@ plugins {
     id 'com.google.dagger.hilt.android' version '2.44' apply false
 }
 
+ext {
+    hiltVersion = '2.44.2'
+    coroutineVersion = '1.6.4'
+    lifecycleVersion = '2.6.1'
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
