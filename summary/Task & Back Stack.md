@@ -37,6 +37,7 @@
 
 ## 📍 Intent flags를 활용하여 launch mode 정의
 - **FLAG_ACTIVITY_NEW_TASK** : 액티비티를 새로운 태스크에서 시작
+- **FLAG_ACTIVITY_CLEAR_TASK** : 태스크에 존재하는 모든 액티비티를 제거한 후 액티비티 시작
 - **FLAG_ACTIVITY_CLEAR_TOP** : 스택에 존재하는 모든 액티비티를 제거하고 새 액티비티 추가
 - **FLAG_ACTIVITY_SINGLE_TOP** : 이미 생성된 액티비티를 재사용하도록 지정 (`onNewIntent()` 호출)
 <br>
