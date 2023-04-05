@@ -155,6 +155,7 @@ override fun onRestoreInstanceState(savedInstanceState: Bundle) {
 
 ### Back 버튼으로 액티비티 종료
 - onPause() → onStop() → onDestroy()
+<br>
 
 # Reference
 - [Android Developers > The activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle)
