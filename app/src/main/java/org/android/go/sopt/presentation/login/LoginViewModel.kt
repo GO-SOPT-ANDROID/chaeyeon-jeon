@@ -29,7 +29,7 @@ class LoginViewModel @Inject constructor(
     }
 
     private fun checkAutoLogin() {
-        if (authRepository.getAutoLogin()) _loginState.value = Success
+        if (authRepository.getAutoLogin() && authRepository.getSignedUpUser() != null) _loginState.value = Success
     }
 
     fun setSavedUser(savedUser: User) {

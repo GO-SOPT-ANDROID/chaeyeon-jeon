@@ -26,7 +26,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
             with(binding) {
                 tvMainName.text = getString(R.string.main_name, user.name)
                 tvMainSpecialty.text = getString(R.string.main_specialty, user.specialty)
-                tvMainMbti.text = getString(R.string.main_mbti, user.mbti)
+                tvMainMbti.text = getString(R.string.main_mbti, user.mbti ?: "")
             }
         }
     }

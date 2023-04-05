@@ -56,8 +56,10 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
             when (state) {
                 is Success -> {
                     showToast(getString(R.string.login_login_success_msg))
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finish()
+                    Intent(this, MainActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(this)
+                    }
                 }
                 is Failure -> showSnackbar(binding.root, getString(R.string.wrong_input_msg))
             }
