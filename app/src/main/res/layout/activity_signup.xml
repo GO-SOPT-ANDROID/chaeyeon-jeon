@@ -20,7 +20,7 @@
             android:id="@+id/sv_signup"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="6dp"
             app:layout_constraintBottom_toTopOf="@id/btn_signup_signup_complete"
             app:layout_constraintTop_toTopOf="parent">
 

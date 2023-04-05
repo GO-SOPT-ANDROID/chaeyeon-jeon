@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import org.android.go.sopt.data.User
+import org.android.go.sopt.data.entity.User
 import org.android.go.sopt.util.UiState
 import org.android.go.sopt.util.UiState.Failure
 import org.android.go.sopt.util.UiState.Success
@@ -25,6 +25,7 @@ class SignupViewModel @Inject constructor() : ViewModel() {
     val mbti = MutableLiveData("")
 
     private fun isValidId(id: String?) = !id.isNullOrBlank() && id.length in 6..10
+
     private fun isValidPwd(pwd: String?) = !pwd.isNullOrBlank() && pwd.length in 8..12
 
     fun signup() {

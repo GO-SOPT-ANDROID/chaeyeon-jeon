@@ -4,7 +4,7 @@ import android.content.Intent.EXTRA_USER
 import android.os.Bundle
 import dagger.hilt.android.AndroidEntryPoint
 import org.android.go.sopt.R
-import org.android.go.sopt.data.User
+import org.android.go.sopt.data.entity.User
 import org.android.go.sopt.databinding.ActivityMainBinding
 import org.android.go.sopt.util.binding.BindingActivity
 import org.android.go.sopt.util.extension.getCompatibleParcelableExtra

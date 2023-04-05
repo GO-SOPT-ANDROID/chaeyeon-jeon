@@ -8,5 +8,5 @@ import android.os.Parcelable
 /** Retrieve extended data from the intent and support app compatibility */
 inline fun <reified T : Parcelable> Intent.getCompatibleParcelableExtra(key: String): T? = when {
     SDK_INT >= TIRAMISU -> getParcelableExtra(key, T::class.java)
-    else -> @Suppress("DEPRECATION") getParcelableExtra(key) as? T // ktlint-disable annotation
+    else -> getParcelableExtra(key) as? T
 }

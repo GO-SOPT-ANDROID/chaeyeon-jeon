@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import org.android.go.sopt.data.User
+import org.android.go.sopt.data.entity.User
 import org.android.go.sopt.util.UiState
 import org.android.go.sopt.util.UiState.Failure
 import org.android.go.sopt.util.UiState.Success
@@ -12,9 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor() : ViewModel() {
-    private var _savedUser = User()
-    val savedUser: User
-        get() = _savedUser
+    var signedUpUser = User()
 
     private val _loginState = MutableLiveData<UiState>()
     val loginState: LiveData<UiState>
@@ -24,15 +22,15 @@ class LoginViewModel @Inject constructor() : ViewModel() {
     val pwd = MutableLiveData("")
 
     fun setSavedUser(savedUser: User) {
-        this._savedUser = savedUser
+        this.signedUpUser = savedUser
     }
 
     private fun isValidInput() =
-        !id.value.isNullOrBlank() && id.value == _savedUser.id && !pwd.value.isNullOrBlank() && pwd.value == _savedUser.pwd
+        !id.value.isNullOrBlank() && id.value == signedUpUser.id && !pwd.value.isNullOrBlank() && pwd.value == signedUpUser.pwd
 
     fun login() {
         if (!isValidInput()) {
-            _loginState.value = Failure(0)
+            _loginState.value = Failure(null)
             return
         }
         _loginState.value = Success

@@ -9,7 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import org.android.go.sopt.R
-import org.android.go.sopt.data.User
+import org.android.go.sopt.data.entity.User
 import org.android.go.sopt.databinding.ActivityLoginBinding
 import org.android.go.sopt.presentation.main.MainActivity
 import org.android.go.sopt.presentation.signup.SignupActivity
@@ -60,7 +60,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
                 is Success -> {
                     showToast(getString(R.string.login_login_success_msg))
                     Intent(this, MainActivity::class.java).apply {
-                        this.putExtra(EXTRA_USER, viewModel.savedUser)
+                        this.putExtra(EXTRA_USER, viewModel.signedUpUser)
                         startActivity(this)
                     }
                     finish()
