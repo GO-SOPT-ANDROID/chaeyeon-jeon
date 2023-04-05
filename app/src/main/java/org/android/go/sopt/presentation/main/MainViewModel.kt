@@ -11,4 +11,8 @@ class MainViewModel @Inject constructor(
     private val authRepository: AuthRepository,
 ) : ViewModel() {
     fun getSignedUpUser(): User = authRepository.getSignedUpUser() ?: User()
+
+    fun disableAutoLogin() {
+        authRepository.setAutoLogin(false)
+    }
 }

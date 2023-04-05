@@ -1,11 +1,14 @@
 package org.android.go.sopt.presentation.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import org.android.go.sopt.R
 import org.android.go.sopt.databinding.ActivityMainBinding
+import org.android.go.sopt.presentation.login.LoginActivity
 import org.android.go.sopt.util.binding.BindingActivity
+import org.android.go.sopt.util.extension.setOnSingleClickListener
 
 @AndroidEntryPoint
 class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main) {
@@ -15,6 +18,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         super.onCreate(savedInstanceState)
 
         getUserData()
+        initLogoutBtnClickListener()
     }
 
     private fun getUserData() {
@@ -24,6 +28,14 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
                 tvMainSpecialty.text = getString(R.string.main_specialty, user.specialty)
                 tvMainMbti.text = getString(R.string.main_mbti, user.mbti)
             }
+        }
+    }
+
+    private fun initLogoutBtnClickListener() {
+        binding.btnMainLogout.setOnSingleClickListener {
+            viewModel.disableAutoLogin()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
     }
 }
