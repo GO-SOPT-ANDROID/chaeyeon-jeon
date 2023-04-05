@@ -10,4 +10,6 @@ interface AuthRepository {
     fun setSignedUpUser(user: User)
 
     fun getSignedUpUser(): User?
+
+    fun clearLocalPref()
 }

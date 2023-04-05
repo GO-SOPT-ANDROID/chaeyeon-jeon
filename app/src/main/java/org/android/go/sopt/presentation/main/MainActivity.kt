@@ -18,7 +18,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         super.onCreate(savedInstanceState)
 
         getUserData()
-        initLogoutBtnClickListener()
+        initLogoutAndLeaveBtnClickListener()
     }
 
     private fun getUserData() {
@@ -31,9 +31,9 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         }
     }
 
-    private fun initLogoutBtnClickListener() {
-        binding.btnMainLogout.setOnSingleClickListener {
-            viewModel.disableAutoLogin()
+    private fun initLogoutAndLeaveBtnClickListener() {
+        binding.btnMainLogoutAndLeave.setOnSingleClickListener {
+            viewModel.clearLocalPref()
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }

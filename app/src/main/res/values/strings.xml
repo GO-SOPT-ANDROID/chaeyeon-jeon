@@ -29,5 +29,5 @@
     <string name="main_name">이름 : %s</string>
     <string name="main_specialty">특기 : %s</string>
     <string name="main_mbti">MBTI : %s</string>
-    <string name="main_logout_btn">LOG OUT</string>
+    <string name="main_logout_and_leave_btn">LOG OUT &amp; LEAVE</string>
 </resources>

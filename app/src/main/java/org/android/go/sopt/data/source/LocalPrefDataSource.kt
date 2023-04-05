@@ -30,6 +30,13 @@ class LocalPrefDataSource @Inject constructor(
             }
         }
 
+    fun clearLocalPref() {
+        with(prefs.edit()) {
+            clear()
+            commit()
+        }
+    }
+
     companion object {
         const val PREF_IS_AUTO_LOGIN = "IS_AUTO_LOGIN"
         const val PREF_SIGNED_UP_USER = "SIGNED_UP_USER"

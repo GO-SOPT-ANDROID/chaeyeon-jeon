@@ -19,4 +19,8 @@ class AuthRepositoryImpl @Inject constructor(
     }
 
     override fun getSignedUpUser(): User? = localPrefDataSource.signedUpUser
+
+    override fun clearLocalPref() {
+        localPrefDataSource.clearLocalPref()
+    }
 }

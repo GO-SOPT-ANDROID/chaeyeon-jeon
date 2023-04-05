@@ -12,7 +12,7 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
     fun getSignedUpUser(): User = authRepository.getSignedUpUser() ?: User()
 
-    fun disableAutoLogin() {
-        authRepository.setAutoLogin(false)
+    fun clearLocalPref() {
+        authRepository.clearLocalPref()
     }
 }
