@@ -30,4 +30,5 @@
     <string name="main_specialty">특기 : %s</string>
     <string name="main_mbti">MBTI : %s</string>
     <string name="main_logout_and_leave_btn">LOG OUT &amp; LEAVE</string>
+    <string name="main_logout_and_leave_msg">회원 정보가 삭제되었습니다.</string>
 </resources>

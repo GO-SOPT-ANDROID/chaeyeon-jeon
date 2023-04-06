@@ -9,6 +9,7 @@ import org.android.go.sopt.databinding.ActivityMainBinding
 import org.android.go.sopt.presentation.login.LoginActivity
 import org.android.go.sopt.util.binding.BindingActivity
 import org.android.go.sopt.util.extension.setOnSingleClickListener
+import org.android.go.sopt.util.extension.showToast
 
 @AndroidEntryPoint
 class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main) {
@@ -34,6 +35,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
     private fun initLogoutAndLeaveBtnClickListener() {
         binding.btnMainLogoutAndLeave.setOnSingleClickListener {
             viewModel.clearLocalPref()
+            showToast(getString(R.string.main_logout_and_leave_msg))
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
