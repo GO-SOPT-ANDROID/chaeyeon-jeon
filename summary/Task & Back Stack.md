@@ -10,10 +10,10 @@
 <br>
 
 ## 📍 Task 관리 방법
-1. manifest의 <activity> 태그 속성을 통해 관리
+1. manifest의 \<activity\> 태그 속성을 통해 관리
 2.  `startActivity()`에 전달하는 Intent의 flag를 통해 관리
 
-### ① <activity> 속성
+### ① \<activity\> 속성
 - taskAffinity
 - launchMode
 - allowTaskReparenting
@@ -23,8 +23,10 @@
 
 ### ② Intent Flag
 - FLAG_ACTIVITY_NEW_TASK
+- FLAG_ACTIVITY_CLEAR_TASK
 - FLAG_ACTIVITY_CLEAR_TOP
 - FLAG_ACTIVITY_SINGLE_TOP
+- etc
 <br>
 
 ## 📍 manifest 파일을 통해 launchMode 설정
