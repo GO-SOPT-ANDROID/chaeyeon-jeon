@@ -2,6 +2,7 @@
     <string name="app_name">GO SOPT Android</string>
     <!-- common -->
     <string name="wrong_input_msg">잘못된 입력입니다.</string>
+    <string name="binding_error_msg">Binding not initialized to reference the view.</string>
 
     <!-- login -->
     <string name="login_welcome_msg">Welcome to GO Android!</string>
@@ -31,4 +32,6 @@
     <string name="main_mbti">MBTI : %s</string>
     <string name="main_logout_and_leave_btn">LOG OUT &amp; LEAVE</string>
     <string name="main_logout_and_leave_msg">회원 정보가 삭제되었습니다.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
