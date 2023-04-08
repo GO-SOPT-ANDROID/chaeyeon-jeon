@@ -10,6 +10,7 @@ import org.android.go.sopt.presentation.login.LoginActivity
 import org.android.go.sopt.util.binding.BindingActivity
 import org.android.go.sopt.util.extension.setOnSingleClickListener
 import org.android.go.sopt.util.extension.showToast
+import org.android.go.sopt.util.type.MBTI.NONE
 
 @AndroidEntryPoint
 class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main) {
@@ -27,7 +28,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
             with(binding) {
                 tvMainName.text = getString(R.string.main_name, user.name)
                 tvMainSpecialty.text = getString(R.string.main_specialty, user.specialty)
-                tvMainMbti.text = getString(R.string.main_mbti, user.mbti ?: "")
+                tvMainMbti.text = getString(R.string.main_mbti, user.mbti ?: NONE)
             }
         }
     }
