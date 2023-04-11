@@ -62,7 +62,7 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
         Intent(this, LoginActivity::class.java).apply {
             this.putExtra(EXTRA_USER, viewModel.getUser())
             setResult(Activity.RESULT_OK, this)
-            finish()
+            if (!isFinishing) finish()
         }
     }
 }

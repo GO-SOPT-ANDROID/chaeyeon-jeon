@@ -26,8 +26,10 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         binding.btnMainLogoutAndLeave.setOnSingleClickListener {
             viewModel.clearLocalPref()
             showToast(getString(R.string.main_logout_and_leave_msg))
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
+            Intent(this, LoginActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(this)
+            }
         }
     }
 }
