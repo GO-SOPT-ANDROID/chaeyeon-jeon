@@ -1,5 +1,6 @@
 package org.android.go.sopt.presentation.main
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.android.go.sopt.data.entity.User
@@ -10,7 +11,13 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val authRepository: AuthRepository,
 ) : ViewModel() {
-    fun getSignedUpUser(): User = authRepository.getSignedUpUser() ?: User()
+    val signedUpUser = MutableLiveData<User>()
+
+    init {
+        signedUpUser.value = getSignedUpUser()
+    }
+
+    private fun getSignedUpUser(): User = authRepository.getSignedUpUser() ?: User()
 
     fun clearLocalPref() {
         authRepository.clearLocalPref()
