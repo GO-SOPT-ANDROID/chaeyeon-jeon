@@ -6,6 +6,9 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="org.android.go.sopt.presentation.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -11,6 +11,7 @@ import org.android.go.sopt.util.UiState.Failure
 import org.android.go.sopt.util.UiState.Success
 import org.android.go.sopt.util.safeValueOf
 import org.android.go.sopt.util.type.MBTI
+import org.android.go.sopt.util.type.MBTI.NONE
 import javax.inject.Inject
 
 @HiltViewModel
@@ -27,9 +28,11 @@ class SignupViewModel @Inject constructor(
     val specialty = MutableLiveData("")
     val mbti = MutableLiveData("")
 
-    private fun isValidId(id: String?) = !id.isNullOrBlank() && id.length in 6..10
+    private fun isValidId(id: String?) =
+        !id.isNullOrBlank() && id.length in MIN_ID_LENGTH..MAX_ID_LENGTH
 
-    private fun isValidPwd(pwd: String?) = !pwd.isNullOrBlank() && pwd.length in 8..12
+    private fun isValidPwd(pwd: String?) =
+        !pwd.isNullOrBlank() && pwd.length in MIN_PWD_LENGTH..MAX_PWD_LENGTH
 
     fun signup() {
         if (!isValidId(id.value)) {
@@ -50,11 +53,16 @@ class SignupViewModel @Inject constructor(
             requireNotNull(pwd.value).trim(),
             name.value?.trim(),
             specialty.value?.trim(),
-            safeValueOf<MBTI>(mbti.value?.trim()?.uppercase()),
+            safeValueOf<MBTI>(mbti.value?.trim()?.uppercase()) ?: NONE,
         )
     }
 
     companion object {
+        const val MIN_ID_LENGTH = 6
+        const val MAX_ID_LENGTH = 10
+        const val MIN_PWD_LENGTH = 8
+        const val MAX_PWD_LENGTH = 12
+
         const val INVALID_ID_CODE = 100
         const val INVALID_PWD_CODE = 101
     }

@@ -41,13 +41,7 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
     private fun setupSignupState() {
         viewModel.signupState.observe(this) { state ->
             when (state) {
-                is Success -> {
-                    Intent(this, LoginActivity::class.java).apply {
-                        this.putExtra(EXTRA_USER, viewModel.getUser())
-                        setResult(Activity.RESULT_OK, this)
-                        finish()
-                    }
-                }
+                is Success -> intentToLogin()
                 is Failure -> {
                     when (state.code) {
                         INVALID_ID_CODE -> showSnackbar(
@@ -61,6 +55,14 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
                     }
                 }
             }
+        }
+    }
+
+    private fun intentToLogin() {
+        Intent(this, LoginActivity::class.java).apply {
+            this.putExtra(EXTRA_USER, viewModel.getUser())
+            setResult(Activity.RESULT_OK, this)
+            if (!isFinishing) finish()
         }
     }
 }

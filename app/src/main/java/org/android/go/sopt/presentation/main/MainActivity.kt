@@ -13,14 +13,18 @@ import org.android.go.sopt.util.binding.BindingActivity
 
 @AndroidEntryPoint
 class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main) {
+    private val viewModel by viewModels<MainViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding.vm = viewModel
 
         initNavigationBar()
     }
 
     private fun initNavigationBar() {
-        supportFragmentManager.findFragmentById(R.id.fcv_main_container) ?: navigateTo<HomeFragment>()
+        supportFragmentManager.findFragmentById(R.id.fcv_main_container)
+            ?: navigateTo<HomeFragment>()
     }
 
     private inline fun <reified T : Fragment> navigateTo() {
