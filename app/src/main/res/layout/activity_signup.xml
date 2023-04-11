@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.signup.SignupActivity">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="org.android.go.sopt.presentation.signup.SignupViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_signup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/sv_signup"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="6dp"
+            app:layout_constraintBottom_toTopOf="@id/btn_signup_signup_complete"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_signup_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="40dp"
+                android:paddingVertical="50dp">
+
+                <TextView
+                    android:id="@+id/tv_signup_id_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_id_label"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_signup_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:hint="@string/login_id_hint"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:maxLength="@{vm.MAX_ID_LENGTH}"
+                    android:paddingVertical="12dp"
+                    android:text="@={vm.id}"
+                    app:layout_constraintTop_toBottomOf="@id/tv_signup_id_label" />
+
+                <TextView
+                    android:id="@+id/tv_signup_pwd_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/login_pwd_label"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_signup_id" />
+
+                <EditText
+                    android:id="@+id/et_signup_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:hint="@string/login_pwd_hint"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:maxLength="@{vm.MAX_PWD_LENGTH}"
+                    android:paddingVertical="12dp"
+                    android:text="@={vm.pwd}"
+                    app:layout_constraintTop_toBottomOf="@id/tv_signup_pwd_label" />
+
+                <TextView
+                    android:id="@+id/tv_signup_name_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/signup_name_label"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_signup_pwd" />
+
+                <EditText
+                    android:id="@+id/et_signup_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:hint="@string/signup_name_hint"
+                    android:imeOptions="actionNext"
+                    android:inputType="text|textPersonName"
+                    android:paddingVertical="12dp"
+                    android:text="@={vm.name}"
+                    app:layout_constraintTop_toBottomOf="@id/tv_signup_name_label" />
+
+                <TextView
+                    android:id="@+id/tv_signup_specialty_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/signup_specialty_label"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_signup_name" />
+
+                <EditText
+                    android:id="@+id/et_signup_specialty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:hint="@string/signup_specialty_hint"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:paddingVertical="12dp"
+                    android:text="@={vm.specialty}"
+                    app:layout_constraintTop_toBottomOf="@id/tv_signup_specialty_label" />
+
+                <TextView
+                    android:id="@+id/tv_signup_mbti_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/signup_mbti_label"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_signup_specialty" />
+
+                <EditText
+                    android:id="@+id/et_signup_mbti"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:hint="@string/signup_mbti_hint"
+                    android:imeOptions="actionDone"
+                    android:inputType="textCapCharacters"
+                    android:paddingVertical="12dp"
+                    android:text="@={vm.mbti}"
+                    app:layout_constraintTop_toBottomOf="@id/tv_signup_mbti_label" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btn_signup_signup_complete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="16dp"
+            android:onClick="@{()->vm.signup()}"
+            android:paddingVertical="16dp"
+            android:text="@string/signup_signup_complete_btn"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
