@@ -6,21 +6,21 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.android.go.sopt.data.entity.Repo
-import org.android.go.sopt.databinding.ItemRepoBinding
+import org.android.go.sopt.databinding.ItemHomeRepoBinding
 import org.android.go.sopt.util.DiffCallback
 
 class RepoAdapter(context: Context) : ListAdapter<Repo, RecyclerView.ViewHolder>(diffUtil) {
     private val inflater by lazy { LayoutInflater.from(context) }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return RepoViewHolder(ItemRepoBinding.inflate(inflater, parent, false))
+        return RepoViewHolder(ItemHomeRepoBinding.inflate(inflater, parent, false))
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is RepoViewHolder) holder.setRepo(getItem(position))
     }
 
-    class RepoViewHolder(private val binding: ItemRepoBinding) :
+    class RepoViewHolder(private val binding: ItemHomeRepoBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun setRepo(repo: Repo) {
             binding.data = repo

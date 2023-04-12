@@ -10,7 +10,6 @@ import org.android.go.sopt.util.UiState
 import org.android.go.sopt.util.UiState.Failure
 import org.android.go.sopt.util.UiState.Success
 import org.android.go.sopt.util.safeValueOf
-import org.android.go.sopt.util.type.MBTI
 import org.android.go.sopt.util.type.MBTI.NONE
 import javax.inject.Inject
 
