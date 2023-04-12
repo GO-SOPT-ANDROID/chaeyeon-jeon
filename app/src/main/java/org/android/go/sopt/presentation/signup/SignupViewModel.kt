@@ -53,7 +53,7 @@ class SignupViewModel @Inject constructor(
             requireNotNull(pwd.value).trim(),
             name.value?.trim(),
             specialty.value?.trim(),
-            safeValueOf<MBTI>(mbti.value?.trim()?.uppercase()) ?: NONE,
+            safeValueOf(mbti.value?.trim()?.uppercase(), NONE),
         )
     }
 

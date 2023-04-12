@@ -11,9 +11,7 @@ class OnSingleClickListener(
 
     override fun onClick(v: View) {
         val elapsedRealtime = SystemClock.elapsedRealtime()
-        if ((elapsedRealtime - lastClickTime) < interval) {
-            return
-        }
+        if ((elapsedRealtime - lastClickTime) < interval) return
         lastClickTime = elapsedRealtime
         onSingleClick(v)
     }

@@ -31,10 +31,7 @@ class LocalPrefDataSource @Inject constructor(
         }
 
     fun clearLocalPref() {
-        with(prefs.edit()) {
-            clear()
-            commit()
-        }
+        with(prefs.edit()) { clear() }
     }
 
     companion object {

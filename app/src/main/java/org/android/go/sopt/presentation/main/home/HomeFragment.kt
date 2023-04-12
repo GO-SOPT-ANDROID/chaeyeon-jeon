@@ -18,7 +18,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     }
 
     private fun initRepoListAdapter() {
-        with (binding) {
+        with(binding) {
             rvHomeRepo.adapter = repoAdapter
         }
     }

@@ -11,6 +11,7 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val authRepository: AuthRepository,
 ) : ViewModel() {
+    // TODO : 프로필 보여주는 Fragment ViewModel 으로 로직 옮기기
     val signedUpUser = MutableLiveData<User>()
 
     init {
