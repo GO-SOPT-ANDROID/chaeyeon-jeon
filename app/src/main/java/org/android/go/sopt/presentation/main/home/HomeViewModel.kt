@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor() : ViewModel() {
-    val mockRepoList = listOf<Repo>(
+    val mockRepoList = listOf(
         Repo(
             image = R.drawable.img_main_profile,
             name = "Keyneez",
@@ -27,6 +27,21 @@ class HomeViewModel @Inject constructor() : ViewModel() {
         Repo(
             image = R.drawable.img_main_profile,
             name = "Kotlin-Study",
+            author = "Chaeyeon",
+        ),
+        Repo(
+            image = R.drawable.img_main_profile,
+            name = "Aladin-AOS",
+            author = "2zerozu",
+        ),
+        Repo(
+            image = R.drawable.img_main_profile,
+            name = "Book-Nuts",
+            author = "Nuts",
+        ),
+        Repo(
+            image = R.drawable.img_main_profile,
+            name = "SujungVillage",
             author = "Chaeyeon",
         ),
     )
