@@ -11,7 +11,7 @@ import org.android.go.sopt.databinding.HeaderHomeRepoBinding
 import org.android.go.sopt.databinding.ItemHomeRepoBinding
 import org.android.go.sopt.util.DiffCallback
 
-class RepoAdapter(context: Context) : ListAdapter<Repo, RecyclerView.ViewHolder>(diffUtil) {
+class RepoAdapter(private val context: Context) : ListAdapter<Repo, RecyclerView.ViewHolder>(diffUtil) {
     private val inflater by lazy { LayoutInflater.from(context) }
 
     override fun getItemViewType(position: Int): Int {
