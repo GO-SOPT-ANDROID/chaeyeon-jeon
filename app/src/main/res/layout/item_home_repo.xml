@@ -6,7 +6,7 @@
 
         <variable
             name="data"
-            type="org.android.go.sopt.data.entity.MockRepoDto" />
+            type="org.android.go.sopt.domain.model.Repo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,7 +18,7 @@
 
         <ImageView
             android:id="@+id/iv_repo_profile"
-            android:src="@{context.getDrawable(data.image)}"
+            setCircleImage="@{data.image}"
             android:layout_width="0dp"
             android:layout_height="100dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -39,7 +39,7 @@
             android:id="@+id/tv_repo_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{data.author}"
+            android:text="@{data.owner}"
             android:textColor="@color/black" />
 
         <androidx.constraintlayout.helper.widget.Flow

@@ -43,6 +43,9 @@
     <string name="main_logout_and_leave_btn">LOG OUT &amp; LEAVE</string>
     <string name="main_logout_and_leave_msg">회원 정보가 삭제되었습니다.</string>
 
+    <!-- home -->
+    <string name="home_get_repo_list_fail_msg">리포지토리 목록 불러오기에 실패했습니다.</string>
+
     <!-- home : repo header -->
-    <string name="repo_header_title">Repository List</string>
+    <string name="home_repo_header_title">Repository List</string>
 </resources>

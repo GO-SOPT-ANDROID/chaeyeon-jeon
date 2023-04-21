@@ -8,7 +8,7 @@ import javax.inject.Inject
 class RepoRepositoryImpl @Inject constructor(
     private val repoDataSource: RepoDataSource,
 ) : RepoRepository {
-    override suspend fun getRepoList(): Result<Repo> = runCatching {
-        repoDataSource.getRepoList().toRepo()
+    override suspend fun getRepoList(): Result<List<Repo>> = runCatching {
+        repoDataSource.getRepoList().map { repo -> repo.toRepo() }
     }
 }

@@ -1,11 +1,18 @@
 package org.android.go.sopt.data.source
 
+import com.google.gson.Gson
 import org.android.go.sopt.data.entity.MockRepoDto
-import org.android.go.sopt.data.service.RepoService
+import org.android.go.sopt.util.AssetLoader
 import javax.inject.Inject
 
 class RepoDataSource @Inject constructor(
-    private val repoService: RepoService,
+    private val assetLoader: AssetLoader,
 ) {
-    suspend fun getRepoList(): MockRepoDto = repoService.getRepoList()
+    private val gson = Gson()
+
+    fun getRepoList(): Array<MockRepoDto> {
+        return assetLoader.getJsonString("fake_repo_list.json")?.let { jsonString ->
+            gson.fromJson(jsonString, Array<MockRepoDto>::class.java)
+        } ?: emptyArray()
+    }
 }
