@@ -40,7 +40,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@id/flow_repo_description"
             app:layout_constraintStart_toStartOf="@id/flow_repo_description"
-            tools:text="@string/dummy_text" />
+            tools:text="@string/dummy" />
 
         <TextView
             android:id="@+id/tv_repo_owner"
@@ -52,7 +52,7 @@
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@id/flow_repo_description"
             app:layout_constraintStart_toStartOf="@id/flow_repo_description"
-            tools:text="@string/dummy_text" />
+            tools:text="@string/dummy" />
 
         <androidx.constraintlayout.helper.widget.Flow
             android:id="@+id/flow_repo_description"

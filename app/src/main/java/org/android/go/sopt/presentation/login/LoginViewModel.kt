@@ -42,9 +42,9 @@ class LoginViewModel @Inject constructor(
     fun login() {
         if (!isValidInput()) {
             _loginState.value = Failure(null)
-            authRepository.setAutoLogin(true)
             return
         }
+        authRepository.setAutoLogin(true)
         _loginState.value = Success
     }
 }
