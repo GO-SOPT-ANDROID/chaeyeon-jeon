@@ -89,16 +89,16 @@ data class MockRepoDto(
     val keysUrl: String,
     @SerialName("labels_url")
     val labelsUrl: String,
-    val language: String,
+    val language: String?,
     @SerialName("languages_url")
     val languagesUrl: String,
-    val license: Any,
+    val license: String?,
     @SerialName("merges_url")
     val mergesUrl: String,
     @SerialName("milestones_url")
     val milestonesUrl: String,
     @SerialName("mirror_url")
-    val mirrorUrl: Any,
+    val mirrorUrl: String?,
     val name: String,
     @SerialName("node_id")
     val nodeId: String,
@@ -109,7 +109,7 @@ data class MockRepoDto(
     @SerialName("open_issues_count")
     val openIssuesCount: Int,
     val owner: Owner,
-    @SerialName("`private`")
+    @SerialName("private")
     val isPrivate: Boolean,
     @SerialName("pulls_url")
     val pullsUrl: String,
