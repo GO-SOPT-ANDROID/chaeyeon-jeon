@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.GOSOPTAndroid" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/coral_500</item>
-        <item name="colorPrimaryVariant">@color/coral_600</item>
+        <item name="colorPrimary">@color/coral_600</item>
+        <item name="colorPrimaryVariant">@color/coral_500</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>

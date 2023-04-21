@@ -19,9 +19,10 @@
 
         <ImageView
             android:id="@+id/iv_repo_profile"
-            setCircleImage="@{data.image}"
+            setRoundedCornersImage="@{data.image}"
             android:layout_width="0dp"
             android:layout_height="100dp"
+            android:contentDescription="@{@string/home_repo_img_description(data.name)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"

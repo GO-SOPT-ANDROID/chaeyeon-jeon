@@ -1,4 +1,4 @@
-package org.android.go.sopt.presentation.main
+package org.android.go.sopt.presentation.main.profile
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,17 +8,18 @@ import org.android.go.sopt.domain.repository.AuthRepository
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class ProfileViewModel @Inject constructor(
     private val authRepository: AuthRepository,
 ) : ViewModel() {
-    // TODO : 프로필 보여주는 Fragment ViewModel 으로 로직 옮기기
     val signedUpUser = MutableLiveData<User>()
 
     init {
-        signedUpUser.value = getSignedUpUser()
+        getSignedUpUser()
     }
 
-    private fun getSignedUpUser(): User = authRepository.getSignedUpUser() ?: User()
+    private fun getSignedUpUser() {
+        signedUpUser.value = authRepository.getSignedUpUser() ?: User()
+    }
 
     fun clearLocalPref() {
         authRepository.clearLocalPref()

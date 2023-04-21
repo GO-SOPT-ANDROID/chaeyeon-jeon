@@ -6,13 +6,10 @@
 
     <data>
 
-        <variable
-            name="vm"
-            type="org.android.go.sopt.presentation.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_main"
+        android:id="@+id/layout_profile"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
