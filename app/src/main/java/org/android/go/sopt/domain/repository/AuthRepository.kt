@@ -1,4 +1,4 @@
-package org.android.go.sopt.domain
+package org.android.go.sopt.domain.repository
 
 import org.android.go.sopt.data.entity.User
 

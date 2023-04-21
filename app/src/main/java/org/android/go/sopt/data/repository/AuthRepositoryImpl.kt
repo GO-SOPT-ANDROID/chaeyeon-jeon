@@ -2,7 +2,7 @@ package org.android.go.sopt.data.repository
 
 import org.android.go.sopt.data.entity.User
 import org.android.go.sopt.data.source.LocalPrefDataSource
-import org.android.go.sopt.domain.AuthRepository
+import org.android.go.sopt.domain.repository.AuthRepository
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(

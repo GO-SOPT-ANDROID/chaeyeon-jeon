@@ -6,7 +6,7 @@
 
         <variable
             name="data"
-            type="org.android.go.sopt.data.entity.Repo" />
+            type="org.android.go.sopt.data.entity.MockRepoDto" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import org.android.go.sopt.data.repository.AuthRepositoryImpl
-import org.android.go.sopt.domain.AuthRepository
+import org.android.go.sopt.domain.repository.AuthRepository
 import javax.inject.Singleton
 
 @Module

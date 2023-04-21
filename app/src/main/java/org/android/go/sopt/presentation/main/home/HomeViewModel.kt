@@ -2,47 +2,12 @@ package org.android.go.sopt.presentation.main.home
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import org.android.go.sopt.R
-import org.android.go.sopt.data.entity.Repo
+import org.android.go.sopt.domain.repository.RepoRepository
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor() : ViewModel() {
-    val mockRepoList = listOf(
-        Repo(
-            image = R.drawable.img_main_profile,
-            name = "Keyneez",
-            author = "Chaeyeon",
-        ),
-        Repo(
-            image = R.drawable.img_main_profile,
-            name = "Keyneez-Release",
-            author = "Chaeyeon",
-        ),
-        Repo(
-            image = R.drawable.img_main_profile,
-            name = "Algorithm-Study",
-            author = "Chaeyeon",
-        ),
-        Repo(
-            image = R.drawable.img_main_profile,
-            name = "Kotlin-Study",
-            author = "Chaeyeon",
-        ),
-        Repo(
-            image = R.drawable.img_main_profile,
-            name = "Aladin-AOS",
-            author = "2zerozu",
-        ),
-        Repo(
-            image = R.drawable.img_main_profile,
-            name = "Book-Nuts",
-            author = "Nuts",
-        ),
-        Repo(
-            image = R.drawable.img_main_profile,
-            name = "SujungVillage",
-            author = "Chaeyeon",
-        ),
-    )
+class HomeViewModel @Inject constructor(
+    private val repoRepository: RepoRepository,
+) : ViewModel() {
+    // TODO : getRepoList 호출 및 UI 보여주는 로직 작성
 }
