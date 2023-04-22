@@ -1,6 +1,6 @@
 package org.android.go.sopt.data.repository
 
-import org.android.go.sopt.data.entity.User
+import org.android.go.sopt.domain.model.User
 import org.android.go.sopt.data.source.LocalPrefDataSource
 import org.android.go.sopt.domain.repository.AuthRepository
 import javax.inject.Inject

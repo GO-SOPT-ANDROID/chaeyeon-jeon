@@ -8,7 +8,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import org.android.go.sopt.R
-import org.android.go.sopt.data.entity.User
+import org.android.go.sopt.domain.model.User
 import org.android.go.sopt.databinding.ActivityLoginBinding
 import org.android.go.sopt.presentation.main.MainActivity
 import org.android.go.sopt.presentation.signup.SignupActivity

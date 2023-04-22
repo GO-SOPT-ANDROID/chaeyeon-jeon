@@ -4,7 +4,7 @@ import android.content.SharedPreferences
 import androidx.core.content.edit
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import org.android.go.sopt.data.entity.User
+import org.android.go.sopt.domain.model.User
 import javax.inject.Inject
 import javax.inject.Singleton
 
