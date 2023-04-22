@@ -40,8 +40,8 @@ class HomeViewModel @Inject constructor(
                     Timber.d("GET REPO LIST SUCCESS : $repoList")
                 }
                 .onFailure { t ->
-                    Timber.e("GET REPO LIST FAIL : ${t.message}")
                     _getRepoListState.value = Failure(null)
+                    Timber.e("GET REPO LIST FAIL : ${t.message}")
                 }
         }
     }

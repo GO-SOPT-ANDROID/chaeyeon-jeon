@@ -10,8 +10,12 @@ class RepoDataSource @Inject constructor(
     private val assetLoader: AssetLoader,
 ) {
     fun getRepoList(): Array<MockRepoDto> {
-        return assetLoader.getJsonString("fake_repo_list.json")?.let { jsonString ->
+        return assetLoader.getJsonString(FILE_FAKE_REPO_LIST)?.let { jsonString ->
             Json.decodeFromString<Array<MockRepoDto>>(jsonString)
         } ?: emptyArray()
+    }
+
+    companion object {
+        private const val FILE_FAKE_REPO_LIST = "fake_repo_list.json"
     }
 }
