@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import org.android.go.sopt.data.entity.User
-import org.android.go.sopt.domain.AuthRepository
+import org.android.go.sopt.domain.model.User
+import org.android.go.sopt.domain.repository.AuthRepository
 import org.android.go.sopt.util.UiState
 import org.android.go.sopt.util.UiState.Failure
 import org.android.go.sopt.util.UiState.Success
@@ -42,9 +42,9 @@ class LoginViewModel @Inject constructor(
     fun login() {
         if (!isValidInput()) {
             _loginState.value = Failure(null)
-            authRepository.setAutoLogin(true)
             return
         }
+        authRepository.setAutoLogin(true)
         _loginState.value = Success
     }
 }

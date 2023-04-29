@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">GO SOPT Android</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <!-- common -->
+    <string name="dummy">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
     <string name="wrong_input_msg">잘못된 입력입니다.</string>
+    <string name="binding_error_msg">Binding not initialized to reference the view.</string>
+    <string name="view_type_error_msg">Unknown View Type : %d</string>
 
     <!-- login -->
     <string name="login_welcome_msg">Welcome to GO Android!</string>
@@ -26,9 +31,23 @@
     <string name="signup_invalid_pwd_msg">잘못된 비밀번호입니다.</string>
 
     <!-- main -->
-    <string name="main_name">이름 : %s</string>
-    <string name="main_specialty">특기 : %s</string>
-    <string name="main_mbti">MBTI : %s</string>
-    <string name="main_logout_and_leave_btn">LOG OUT &amp; LEAVE</string>
-    <string name="main_logout_and_leave_msg">회원 정보가 삭제되었습니다.</string>
+    <string name="main_home">홈</string>
+    <string name="main_gallery">갤러리</string>
+    <string name="main_search">검색</string>
+    <string name="main_profile">프로필</string>
+
+    <!-- profile -->
+    <string name="profile_name">이름 : %s</string>
+    <string name="profile_specialty">특기 : %s</string>
+    <string name="profile_mbti">MBTI : %s</string>
+    <string name="profile_logout_and_leave_btn">LOG OUT &amp; LEAVE</string>
+    <string name="profile_logout_and_leave_msg">회원 정보가 삭제되었습니다.</string>
+    <string name="profile_img_description">프로필 이미지</string>
+
+    <!-- home -->
+    <string name="home_get_repo_list_fail_msg">리포지토리 목록 불러오기에 실패했습니다.</string>
+    <!-- home : repo item -->
+    <string name="home_repo_img_description">리포지토리 %s 이미지</string>
+    <!-- home : repo header -->
+    <string name="home_repo_header_title">Repository List</string>
 </resources>

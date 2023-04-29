@@ -4,13 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import org.android.go.sopt.data.entity.User
-import org.android.go.sopt.domain.AuthRepository
+import org.android.go.sopt.domain.model.User
+import org.android.go.sopt.domain.repository.AuthRepository
 import org.android.go.sopt.util.UiState
 import org.android.go.sopt.util.UiState.Failure
 import org.android.go.sopt.util.UiState.Success
 import org.android.go.sopt.util.safeValueOf
-import org.android.go.sopt.util.type.MBTI
 import org.android.go.sopt.util.type.MBTI.NONE
 import javax.inject.Inject
 
@@ -53,7 +52,7 @@ class SignupViewModel @Inject constructor(
             requireNotNull(pwd.value).trim(),
             name.value?.trim(),
             specialty.value?.trim(),
-            safeValueOf<MBTI>(mbti.value?.trim()?.uppercase()) ?: NONE,
+            safeValueOf(mbti.value?.trim()?.uppercase(), NONE),
         )
     }
 

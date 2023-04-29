@@ -5,7 +5,9 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import org.android.go.sopt.data.repository.AuthRepositoryImpl
-import org.android.go.sopt.domain.AuthRepository
+import org.android.go.sopt.data.repository.RepoRepositoryImpl
+import org.android.go.sopt.domain.repository.AuthRepository
+import org.android.go.sopt.domain.repository.RepoRepository
 import javax.inject.Singleton
 
 @Module
@@ -13,7 +15,13 @@ import javax.inject.Singleton
 abstract class RepositoryModule {
     @Binds
     @Singleton
-    abstract fun providesAuthRepository(
+    abstract fun bindsAuthRepository(
         authRepositoryImpl: AuthRepositoryImpl,
     ): AuthRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindsRepoRepository(
+        repoRepositoryImpl: RepoRepositoryImpl,
+    ): RepoRepository
 }
