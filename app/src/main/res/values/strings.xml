@@ -36,6 +36,19 @@
     <string name="main_search">검색</string>
     <string name="main_profile">프로필</string>
 
+    <!-- home -->
+    <string name="home_get_repo_list_fail_msg">리포지토리 목록 불러오기에 실패했습니다.</string>
+    <!-- home : repo header -->
+    <string name="home_repo_header_title">Repository List</string>
+    <!-- home : repo item -->
+    <string name="home_repo_img_description">리포지토리 %s 이미지</string>
+
+    <!-- gallery -->
+    <string name="gallery_fragment">GALLERY FRAGMENT</string>
+
+    <!-- search -->
+    <string name="search_fragment">SEARCH FRAGMENT</string>
+
     <!-- profile -->
     <string name="profile_name">이름 : %s</string>
     <string name="profile_specialty">특기 : %s</string>
@@ -43,11 +56,4 @@
     <string name="profile_logout_and_leave_btn">LOG OUT &amp; LEAVE</string>
     <string name="profile_logout_and_leave_msg">회원 정보가 삭제되었습니다.</string>
     <string name="profile_img_description">프로필 이미지</string>
-
-    <!-- home -->
-    <string name="home_get_repo_list_fail_msg">리포지토리 목록 불러오기에 실패했습니다.</string>
-    <!-- home : repo item -->
-    <string name="home_repo_img_description">리포지토리 %s 이미지</string>
-    <!-- home : repo header -->
-    <string name="home_repo_header_title">Repository List</string>
 </resources>
