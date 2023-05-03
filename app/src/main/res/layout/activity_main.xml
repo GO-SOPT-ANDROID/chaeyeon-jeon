@@ -24,7 +24,11 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bnv_main"
             android:layout_width="0dp"
-            android:layout_height="56dp"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_800"
+            app:itemActiveIndicatorStyle="@style/Widget.GoSopt.BottomNavigationView.ActiveIndicator"
+            app:itemIconTint="@drawable/sel_main_bot_nav_menu_color"
+            app:itemTextColor="@drawable/sel_main_bot_nav_menu_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.GOSOPTAndroid" parent="Theme.Material3.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/coral_700</item>
-        <item name="colorPrimaryVariant">@color/coral_400</item>
+        <item name="colorPrimary">@color/coral_600</item>
+        <item name="colorPrimaryVariant">@color/gray_800</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/mint_400</item>
