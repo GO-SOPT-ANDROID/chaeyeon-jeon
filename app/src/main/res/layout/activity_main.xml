@@ -28,7 +28,7 @@
             android:background="?colorPrimaryVariant"
             app:itemActiveIndicatorStyle="@style/Widget.GoSopt.BottomNavigationView.ActiveIndicator"
             app:itemIconTint="@drawable/sel_main_bot_nav_menu_color"
-            app:itemTextColor="?colorBackground"
+            app:itemTextColor="?android:colorBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

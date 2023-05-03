@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme. -->
+
     <style name="Theme.GoSopt" parent="Theme.Material3.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/coral_600</item>
@@ -21,6 +22,6 @@
         <!-- Remove font padding. -->
         <item name="android:includeFontPadding">false</item>
         <!-- Splash screen theme. -->
-        <item name="windowSplashScreenBackground">@color/gray_900</item>
+        <item name="android:windowSplashScreenBackground">@color/gray_900</item>
     </style>
 </resources>
