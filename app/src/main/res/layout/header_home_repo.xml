@@ -13,7 +13,7 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:text="@string/home_repo_header_title"
-        android:textColor="@color/black"
+        android:textColor="?colorOnBackground"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
