@@ -2,7 +2,7 @@
 <resources>
 
     <style name="TextAppearance.GoSopt" parent="">
-        <item name="android:fontFamily">@font/go_sopt_font</item>
+        <item name="android:fontFamily">@font/sopt_font</item>
         <item name="fontWeight">400</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textColor">?attr/colorOnBackground</item>
