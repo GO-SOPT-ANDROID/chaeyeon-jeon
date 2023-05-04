@@ -20,7 +20,13 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Remove font padding. -->
         <item name="android:includeFontPadding">false</item>
-        <!-- Splash screen theme. -->
-        <item name="windowSplashScreenBackground">@color/gray_900</item>
+        <!-- Font theme. -->
+        <item name="textAppearanceDisplayMedium">@style/TextAppearance.GoSopt.DisplayMedium</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.GoSopt.HeadlineMedium</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.GoSopt.BodyLarge</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.GoSopt.BodySmall</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.GoSopt.CaptionMedium</item>
+        <!-- Splash screen color. -->
+        <!-- TODO : 스플래시 화면 호환성 지원 -->
     </style>
 </resources>

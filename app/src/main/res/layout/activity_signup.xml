@@ -36,9 +36,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/login_id_label"
+                    android:textAppearance="?textAppearanceHeadlineMedium"
                     android:textColor="?colorOnBackground"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,8 +50,9 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:maxLength="@{vm.MAX_ID_LENGTH}"
-                    android:paddingVertical="12dp"
+                    android:paddingVertical="16dp"
                     android:text="@={vm.id}"
+                    android:textAppearance="@style/TextAppearance.GoSopt.BodyLarge"
                     app:layout_constraintTop_toBottomOf="@id/tv_signup_id_label" />
 
                 <TextView
@@ -61,9 +61,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/login_pwd_label"
+                    android:textAppearance="?textAppearanceHeadlineMedium"
                     android:textColor="?colorOnBackground"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/et_signup_id" />
 
@@ -76,8 +75,9 @@
                     android:imeOptions="actionNext"
                     android:inputType="textPassword"
                     android:maxLength="@{vm.MAX_PWD_LENGTH}"
-                    android:paddingVertical="12dp"
+                    android:paddingVertical="16dp"
                     android:text="@={vm.pwd}"
+                    android:textAppearance="@style/TextAppearance.GoSopt.BodyLarge"
                     app:layout_constraintTop_toBottomOf="@id/tv_signup_pwd_label" />
 
                 <TextView
@@ -86,9 +86,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/signup_name_label"
+                    android:textAppearance="?textAppearanceHeadlineMedium"
                     android:textColor="?colorOnBackground"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/et_signup_pwd" />
 
@@ -100,8 +99,9 @@
                     android:hint="@string/signup_name_hint"
                     android:imeOptions="actionNext"
                     android:inputType="text|textPersonName"
-                    android:paddingVertical="12dp"
+                    android:paddingVertical="16dp"
                     android:text="@={vm.name}"
+                    android:textAppearance="@style/TextAppearance.GoSopt.BodyLarge"
                     app:layout_constraintTop_toBottomOf="@id/tv_signup_name_label" />
 
                 <TextView
@@ -110,9 +110,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/signup_specialty_label"
+                    android:textAppearance="?textAppearanceHeadlineMedium"
                     android:textColor="?colorOnBackground"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/et_signup_name" />
 
@@ -124,8 +123,9 @@
                     android:hint="@string/signup_specialty_hint"
                     android:imeOptions="actionNext"
                     android:inputType="text"
-                    android:paddingVertical="12dp"
+                    android:paddingVertical="16dp"
                     android:text="@={vm.specialty}"
+                    android:textAppearance="@style/TextAppearance.GoSopt.BodyLarge"
                     app:layout_constraintTop_toBottomOf="@id/tv_signup_specialty_label" />
 
                 <TextView
@@ -134,9 +134,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/signup_mbti_label"
+                    android:textAppearance="?textAppearanceHeadlineMedium"
                     android:textColor="?colorOnBackground"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/et_signup_specialty" />
 
@@ -148,8 +147,9 @@
                     android:hint="@string/signup_mbti_hint"
                     android:imeOptions="actionDone"
                     android:inputType="textCapCharacters"
-                    android:paddingVertical="12dp"
+                    android:paddingVertical="16dp"
                     android:text="@={vm.mbti}"
+                    android:textAppearance="@style/TextAppearance.GoSopt.BodyLarge"
                     app:layout_constraintTop_toBottomOf="@id/tv_signup_mbti_label" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
@@ -158,13 +158,12 @@
             android:id="@+id/btn_signup_signup_complete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textAppearance="?textAppearanceHeadlineMedium"
             android:layout_marginHorizontal="40dp"
             android:layout_marginBottom="16dp"
             android:onClick="@{()->vm.signup()}"
             android:paddingVertical="16dp"
             android:text="@string/signup_signup_complete_btn"
-            android:textSize="16sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

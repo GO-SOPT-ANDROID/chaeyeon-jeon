@@ -23,9 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:text="@string/login_welcome_msg"
+            android:textAppearance="?textAppearanceDisplayMedium"
             android:textColor="?colorOnBackground"
-            android:textSize="24sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,9 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:text="@string/login_id_label"
+            android:textAppearance="?textAppearanceHeadlineMedium"
             android:textColor="?colorOnBackground"
-            android:textSize="18sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_login_welcome_msg" />
 
@@ -50,8 +48,9 @@
             android:hint="@string/login_id_hint"
             android:imeOptions="actionNext"
             android:inputType="text"
-            android:paddingVertical="12dp"
+            android:paddingVertical="16dp"
             android:text="@={vm.id}"
+            android:textAppearance="?textAppearanceBodyLarge"
             app:layout_constraintTop_toBottomOf="@id/tv_login_id_label" />
 
         <TextView
@@ -60,9 +59,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="@string/login_pwd_label"
+            android:textAppearance="@style/TextAppearance.GoSopt.HeadlineMedium"
             android:textColor="?colorOnBackground"
-            android:textSize="18sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_login_id" />
 
@@ -70,14 +68,15 @@
             android:id="@+id/et_login_pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="8dp"
             android:hint="@string/login_pwd_hint"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
-            android:paddingVertical="12dp"
+            android:paddingVertical="16dp"
             android:text="@={vm.pwd}"
+            android:textAppearance="?textAppearanceBodyLarge"
             app:layout_constraintTop_toBottomOf="@id/tv_login_pwd_label"
-            tools:layout_editor_absoluteX="40dp" />
+            tools:layout_editor_absoluteX="-58dp" />
 
         <Button
             android:id="@+id/btn_login_login"
@@ -86,8 +85,7 @@
             android:onClick="@{()->vm.login()}"
             android:paddingVertical="16dp"
             android:text="@string/login_login_btn"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textAppearance="?textAppearanceHeadlineMedium" />
 
         <Button
             android:id="@+id/btn_login_signup"
@@ -95,8 +93,7 @@
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
             android:text="@string/login_signup_btn"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textAppearance="?textAppearanceHeadlineMedium" />
 
         <androidx.constraintlayout.helper.widget.Flow
             android:id="@+id/flow_login_sign_buttons"

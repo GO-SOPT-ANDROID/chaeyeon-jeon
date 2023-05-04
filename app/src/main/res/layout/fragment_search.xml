@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/search_fragment" />
+            android:text="@string/search_fragment"
+            android:textAppearance="?textAppearanceBodyLarge" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
