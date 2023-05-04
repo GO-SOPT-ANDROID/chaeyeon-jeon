@@ -35,6 +35,6 @@
     <style name="TextAppearance.GoSopt.CaptionMedium">
         <item name="fontFamily">@font/font_pretendard_light</item>
         <item name="android:textSize">12sp</item>
-        <item name="lineHeight">15sp</item>
+        <item name="lineHeight">14sp</item>
     </style>
 </resources>
