@@ -20,6 +20,7 @@
             android:name=".presentation.login.LoginActivity"
             android:exported="true"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.GoSopt"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,11 +32,13 @@
             android:name=".presentation.signup.SignupActivity"
             android:exported="false"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.GoSopt"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".presentation.main.MainActivity"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.GoSopt" />
     </application>
 
 </manifest>
