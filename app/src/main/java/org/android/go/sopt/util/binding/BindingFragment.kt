@@ -13,7 +13,7 @@ import org.android.go.sopt.R
 abstract class BindingFragment<T : ViewDataBinding>(
     @LayoutRes private val layoutRes: Int,
 ) : Fragment() {
-    private var _binding: T? = null
+    protected var _binding: T? = null
     protected val binding get() = requireNotNull(_binding) { getString(R.string.binding_error_msg) }
 
     override fun onCreateView(
