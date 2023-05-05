@@ -25,12 +25,12 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
 
-        initLayout()
+        initLayoutClickListener()
         initSignupBtnClickListener()
         setupLoginState()
     }
 
-    private fun initLayout() {
+    private fun initLayoutClickListener() {
         binding.layoutLogin.setOnSingleClickListener { hideKeyboard() }
     }
 

@@ -25,12 +25,17 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(R.layout.fragmen
 
     private fun initLogoutAndLeaveBtnClickListener() {
         binding.btnProfileLogoutAndLeave.setOnSingleClickListener {
+            // TODO: show Logout And Leave Dialog
             viewModel.clearLocalPref()
             requireContext().showToast(getString(R.string.profile_logout_and_leave_msg))
-            Intent(activity, LoginActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(this)
-            }
+            intentToLogin()
+        }
+    }
+
+    private fun intentToLogin() {
+        Intent(activity, LoginActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(this)
         }
     }
 

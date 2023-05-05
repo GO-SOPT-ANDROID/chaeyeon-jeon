@@ -9,8 +9,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import org.android.go.sopt.R
 import org.android.go.sopt.databinding.ActivitySignupBinding
 import org.android.go.sopt.presentation.login.LoginActivity
-import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.INVALID_ID_CODE
-import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.INVALID_PWD_CODE
+import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_INVALID_ID
+import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_INVALID_PWD
 import org.android.go.sopt.util.UiState.Failure
 import org.android.go.sopt.util.UiState.Success
 import org.android.go.sopt.util.binding.BindingActivity
@@ -26,11 +26,11 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
 
-        initLayout()
+        initLayoutClickListener()
         setupSignupState()
     }
 
-    private fun initLayout() {
+    private fun initLayoutClickListener() {
         with(binding) {
             layoutSignup.setOnSingleClickListener { hideKeyboard() }
             svSignup.setOnSingleClickListener { hideKeyboard() }
@@ -44,11 +44,11 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
                 is Success -> intentToLogin()
                 is Failure -> {
                     when (state.code) {
-                        INVALID_ID_CODE -> showSnackbar(
+                        CODE_INVALID_ID -> showSnackbar(
                             binding.root,
                             getString(R.string.signup_invalid_id_msg),
                         )
-                        INVALID_PWD_CODE -> showSnackbar(
+                        CODE_INVALID_PWD -> showSnackbar(
                             binding.root,
                             getString(R.string.signup_invalid_pwd_msg),
                         )

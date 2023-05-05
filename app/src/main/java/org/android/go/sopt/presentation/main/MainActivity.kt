@@ -18,10 +18,10 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        initNavigationBar()
+        initBnvItemSelectedListener()
     }
 
-    private fun initNavigationBar() {
+    private fun initBnvItemSelectedListener() {
         supportFragmentManager.findFragmentById(R.id.fcv_main_container)
             ?: navigateTo<HomeFragment>()
 
