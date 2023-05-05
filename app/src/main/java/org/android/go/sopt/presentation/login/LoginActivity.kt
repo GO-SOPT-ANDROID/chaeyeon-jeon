@@ -15,7 +15,10 @@ import org.android.go.sopt.presentation.signup.SignupActivity
 import org.android.go.sopt.util.UiState.Failure
 import org.android.go.sopt.util.UiState.Success
 import org.android.go.sopt.util.binding.BindingActivity
-import org.android.go.sopt.util.extension.* // ktlint-disable no-wildcard-imports
+import org.android.go.sopt.util.extension.getCompatibleParcelableExtra
+import org.android.go.sopt.util.extension.setOnSingleClickListener
+import org.android.go.sopt.util.extension.showSnackbar
+import org.android.go.sopt.util.extension.showToast
 
 @AndroidEntryPoint
 class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_login) {
@@ -25,13 +28,8 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
 
-        initLayoutClickListener()
         initSignupBtnClickListener()
         setupLoginState()
-    }
-
-    private fun initLayoutClickListener() {
-        binding.layoutLogin.setOnSingleClickListener { hideKeyboard() }
     }
 
     private fun initSignupBtnClickListener() {

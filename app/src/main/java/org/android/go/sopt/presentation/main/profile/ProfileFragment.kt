@@ -23,12 +23,12 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(R.layout.fragmen
 
     private fun initLogoutBtnClickListener() {
         binding.btnProfileLogout.setOnSingleClickListener {
-            LogoutDialogFragment().show(requireActivity().supportFragmentManager, TAG_LOGOUT_DIALOG)
+            LogoutDialogFragment().show(parentFragmentManager, TAG_LOGOUT_DIALOG)
         }
     }
 
     companion object {
-        private const val TAG_LOGOUT_DIALOG = "logoutDialog"
+        private const val TAG_LOGOUT_DIALOG = "LOGOUT_DIALOG"
 
         @JvmStatic
         fun newInstance() = ProfileFragment()

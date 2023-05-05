@@ -14,8 +14,6 @@ import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_IN
 import org.android.go.sopt.util.UiState.Failure
 import org.android.go.sopt.util.UiState.Success
 import org.android.go.sopt.util.binding.BindingActivity
-import org.android.go.sopt.util.extension.hideKeyboard
-import org.android.go.sopt.util.extension.setOnSingleClickListener
 import org.android.go.sopt.util.extension.showSnackbar
 
 @AndroidEntryPoint
@@ -26,16 +24,7 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
 
-        initLayoutClickListener()
         setupSignupState()
-    }
-
-    private fun initLayoutClickListener() {
-        with(binding) {
-            layoutSignup.setOnSingleClickListener { hideKeyboard() }
-            svSignup.setOnSingleClickListener { hideKeyboard() }
-            layoutSignupQuestion.setOnSingleClickListener { hideKeyboard() }
-        }
     }
 
     private fun setupSignupState() {
@@ -48,6 +37,7 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
                             binding.root,
                             getString(R.string.signup_invalid_id_msg),
                         )
+
                         CODE_INVALID_PWD -> showSnackbar(
                             binding.root,
                             getString(R.string.signup_invalid_pwd_msg),
