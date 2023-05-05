@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:background="?colorPrimaryVariant"
             app:itemActiveIndicatorStyle="@style/Widget.GoSopt.BottomNavigationView.ActiveIndicator"
-            app:itemIconTint="@drawable/sel_main_bot_nav_menu_color"
+            app:itemIconTint="@drawable/sel_main_color_bot_nav_menu"
             app:itemTextAppearanceActive="?textAppearanceCaption"
             app:itemTextAppearanceInactive="?textAppearanceCaption"
             app:itemTextColor="?android:colorBackground"

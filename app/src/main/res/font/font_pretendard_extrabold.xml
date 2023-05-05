@@ -4,4 +4,8 @@
         android:font="@font/pretendard_extrabold"
         android:fontStyle="normal"
         android:fontWeight="800" />
+    <font
+        android:font="@font/pretendard_extrabold"
+        android:fontStyle="italic"
+        android:fontWeight="800" />
 </font-family>
