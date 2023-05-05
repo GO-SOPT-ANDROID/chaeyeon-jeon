@@ -14,7 +14,13 @@
         <item name="lineHeight">30sp</item>
     </style>
 
-    <style name="TextAppearance.GoSopt.HeadlineMedium">
+    <style name="TextAppearance.GoSopt.HeadlineLarge">
+        <item name="fontFamily">@font/font_pretendard_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="lineHeight">28sp</item>
+    </style>
+
+    <style name="TextAppearance.GoSopt.HeadlineSmall">
         <item name="fontFamily">@font/font_pretendard_bold</item>
         <item name="android:textSize">18sp</item>
         <item name="lineHeight">22sp</item>

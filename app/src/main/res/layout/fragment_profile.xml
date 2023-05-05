@@ -67,14 +67,14 @@
             app:layout_constraintTop_toBottomOf="@id/tv_profile_specialty" />
 
         <Button
-            android:id="@+id/btn_profile_logout_and_leave"
+            android:id="@+id/btn_profile_logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="40dp"
             android:layout_marginBottom="40dp"
             android:paddingVertical="16dp"
-            android:text="@string/profile_logout_and_leave_btn"
-            android:textAppearance="?textAppearanceHeadlineMedium"
+            android:text="@string/profile_logout_btn"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent" />

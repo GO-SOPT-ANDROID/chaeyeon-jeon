@@ -36,7 +36,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/login_id_label"
-                    android:textAppearance="?textAppearanceHeadlineMedium"
+                    android:textAppearance="?attr/textAppearanceHeadlineSmall"
                     android:textColor="?colorOnBackground"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/login_pwd_label"
-                    android:textAppearance="?textAppearanceHeadlineMedium"
+                    android:textAppearance="?attr/textAppearanceHeadlineSmall"
                     android:textColor="?colorOnBackground"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/et_signup_id" />
@@ -86,7 +86,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/signup_name_label"
-                    android:textAppearance="?textAppearanceHeadlineMedium"
+                    android:textAppearance="?attr/textAppearanceHeadlineSmall"
                     android:textColor="?colorOnBackground"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/et_signup_pwd" />
@@ -110,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/signup_specialty_label"
-                    android:textAppearance="?textAppearanceHeadlineMedium"
+                    android:textAppearance="?attr/textAppearanceHeadlineSmall"
                     android:textColor="?colorOnBackground"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/et_signup_name" />
@@ -134,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/signup_mbti_label"
-                    android:textAppearance="?textAppearanceHeadlineMedium"
+                    android:textAppearance="?attr/textAppearanceHeadlineSmall"
                     android:textColor="?colorOnBackground"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/et_signup_specialty" />
@@ -158,7 +158,7 @@
             android:id="@+id/btn_signup_signup_complete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?textAppearanceHeadlineMedium"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
             android:layout_marginHorizontal="40dp"
             android:layout_marginBottom="16dp"
             android:onClick="@{()->vm.signup()}"

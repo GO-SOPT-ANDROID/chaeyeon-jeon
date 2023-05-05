@@ -12,6 +12,7 @@ class GalleryFragment : BindingFragment<FragmentGalleryBinding>(R.layout.fragmen
     }
 
     companion object {
+        @JvmStatic
         fun newInstance() = GalleryFragment()
     }
 }
