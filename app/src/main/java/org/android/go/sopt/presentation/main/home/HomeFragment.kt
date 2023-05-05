@@ -16,17 +16,19 @@ import org.android.go.sopt.util.extension.showSnackbar
 class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private val viewModel by viewModels<HomeViewModel>()
 
-    private val repoHeaderAdapter by lazy { RepoHeaderAdapter() }
-    private val repoItemAdapter by lazy { RepoItemAdapter() }
+    private var repoHeaderAdapter: RepoHeaderAdapter? = null
+    private var repoItemAdapter: RepoItemAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initRepoListAdapter()
+        initRepoAdapter()
         setupGetRepoListState()
     }
 
-    private fun initRepoListAdapter() {
+    private fun initRepoAdapter() {
+        repoHeaderAdapter = RepoHeaderAdapter()
+        repoItemAdapter = RepoItemAdapter()
         binding.rvHomeRepo.adapter = ConcatAdapter(repoHeaderAdapter, repoItemAdapter)
     }
 
@@ -34,8 +36,9 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         viewModel.getRepoListState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is Success -> {
-                    repoItemAdapter.submitList(viewModel.repoList.value)
+                    repoItemAdapter?.submitList(viewModel.repoList.value)
                 }
+
                 is Failure -> {
                     requireContext().showSnackbar(
                         binding.root,
@@ -46,7 +49,14 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        repoHeaderAdapter = null
+        repoItemAdapter = null
+    }
+
     companion object {
+        @JvmStatic
         fun newInstance() = HomeFragment()
     }
 }
