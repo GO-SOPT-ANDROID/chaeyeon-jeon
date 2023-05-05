@@ -59,5 +59,5 @@
     <string name="logout_dialog_question">로그아웃 하시겠습니까?</string>
     <string name="logout_dialog_description">모든 회원 정보가 삭제됩니다.</string>
     <string name="logout_dialog_cancel">CANCEL</string>
-    <string name="logout_dialog_logout">LOGOUT</string>
+    <string name="logout_dialog_logout">LOG OUT</string>
 </resources>

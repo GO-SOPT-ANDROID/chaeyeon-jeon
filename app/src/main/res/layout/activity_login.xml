@@ -14,8 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_login"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingHorizontal="40dp">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/tv_login_welcome_msg"
@@ -33,6 +32,7 @@
             android:id="@+id/tv_login_id_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
             android:layout_marginTop="50dp"
             android:text="@string/login_id_label"
             android:textAppearance="?attr/textAppearanceHeadlineSmall"
@@ -44,6 +44,7 @@
             android:id="@+id/et_login_id"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
             android:layout_marginTop="2dp"
             android:hint="@string/login_id_hint"
             android:imeOptions="actionNext"
@@ -59,6 +60,7 @@
             android:id="@+id/tv_login_pwd_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
             android:layout_marginTop="40dp"
             android:text="@string/login_pwd_label"
             android:textAppearance="@style/TextAppearance.GoSopt.HeadlineSmall"
@@ -70,6 +72,7 @@
             android:id="@+id/et_login_pwd"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
             android:layout_marginTop="2dp"
             android:hint="@string/login_pwd_hint"
             android:imeOptions="actionDone"
@@ -103,6 +106,7 @@
             android:id="@+id/flow_login_sign_buttons"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
             android:layout_marginBottom="16dp"
             android:orientation="horizontal"
             app:constraint_referenced_ids="btn_login_login,btn_login_signup"
