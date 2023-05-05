@@ -18,10 +18,12 @@
 
         <ScrollView
             android:id="@+id/sv_signup"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="6dp"
             app:layout_constraintBottom_toTopOf="@id/btn_signup_signup_complete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,7 +45,7 @@
 
                 <EditText
                     android:id="@+id/et_signup_id"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:hint="@string/login_id_hint"
@@ -53,6 +55,8 @@
                     android:paddingVertical="16dp"
                     android:text="@={vm.id}"
                     android:textAppearance="@style/TextAppearance.GoSopt.BodyLarge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_signup_id_label" />
 
                 <TextView
@@ -68,7 +72,7 @@
 
                 <EditText
                     android:id="@+id/et_signup_pwd"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:hint="@string/login_pwd_hint"
@@ -78,6 +82,8 @@
                     android:paddingVertical="16dp"
                     android:text="@={vm.pwd}"
                     android:textAppearance="@style/TextAppearance.GoSopt.BodyLarge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_signup_pwd_label" />
 
                 <TextView
@@ -93,7 +99,7 @@
 
                 <EditText
                     android:id="@+id/et_signup_name"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:hint="@string/signup_name_hint"
@@ -102,6 +108,8 @@
                     android:paddingVertical="16dp"
                     android:text="@={vm.name}"
                     android:textAppearance="@style/TextAppearance.GoSopt.BodyLarge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_signup_name_label" />
 
                 <TextView
@@ -117,7 +125,7 @@
 
                 <EditText
                     android:id="@+id/et_signup_specialty"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:hint="@string/signup_specialty_hint"
@@ -126,6 +134,8 @@
                     android:paddingVertical="16dp"
                     android:text="@={vm.specialty}"
                     android:textAppearance="@style/TextAppearance.GoSopt.BodyLarge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_signup_specialty_label" />
 
                 <TextView
@@ -141,7 +151,7 @@
 
                 <EditText
                     android:id="@+id/et_signup_mbti"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:hint="@string/signup_mbti_hint"
@@ -150,6 +160,8 @@
                     android:paddingVertical="16dp"
                     android:text="@={vm.mbti}"
                     android:textAppearance="@style/TextAppearance.GoSopt.BodyLarge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_signup_mbti_label" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
@@ -158,12 +170,12 @@
             android:id="@+id/btn_signup_signup_complete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceHeadlineSmall"
             android:layout_marginHorizontal="40dp"
             android:layout_marginBottom="16dp"
             android:onClick="@{()->vm.signup()}"
             android:paddingVertical="16dp"
             android:text="@string/signup_signup_complete_btn"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
             app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
