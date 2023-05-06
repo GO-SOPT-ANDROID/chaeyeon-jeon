@@ -12,8 +12,8 @@ import org.android.go.sopt.databinding.ActivityLoginBinding
 import org.android.go.sopt.domain.model.User
 import org.android.go.sopt.presentation.main.MainActivity
 import org.android.go.sopt.presentation.signup.SignupActivity
-import org.android.go.sopt.util.UiState.Failure
-import org.android.go.sopt.util.UiState.Success
+import org.android.go.sopt.util.state.LocalUiState.Failure
+import org.android.go.sopt.util.state.LocalUiState.Success
 import org.android.go.sopt.util.binding.BindingActivity
 import org.android.go.sopt.util.extension.getCompatibleParcelableExtra
 import org.android.go.sopt.util.extension.setOnSingleClickListener

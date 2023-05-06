@@ -11,10 +11,11 @@ import org.android.go.sopt.databinding.ActivitySignupBinding
 import org.android.go.sopt.presentation.login.LoginActivity
 import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_INVALID_ID
 import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_INVALID_PWD
-import org.android.go.sopt.util.UiState.Failure
-import org.android.go.sopt.util.UiState.Success
 import org.android.go.sopt.util.binding.BindingActivity
 import org.android.go.sopt.util.extension.showSnackbar
+import org.android.go.sopt.util.state.RemoteUiState.Error
+import org.android.go.sopt.util.state.RemoteUiState.Failure
+import org.android.go.sopt.util.state.RemoteUiState.Success
 
 @AndroidEntryPoint
 class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_signup) {
@@ -44,6 +45,8 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
                         )
                     }
                 }
+
+                is Error -> showSnackbar(binding.root, getString(R.string.server_error_msg))
             }
         }
     }

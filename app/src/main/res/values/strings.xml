@@ -5,6 +5,7 @@
     <!-- common -->
     <string name="dummy">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
     <string name="wrong_input_msg">잘못된 입력입니다.</string>
+    <string name="server_error_msg">서버를 불러올 수 없습니다.</string>
     <string name="binding_error_msg">Binding not initialized to reference the view.</string>
     <string name="view_type_error_msg">Unknown View Type : %d</string>
 

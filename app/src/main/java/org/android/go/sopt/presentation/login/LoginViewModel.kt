@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.android.go.sopt.domain.model.User
 import org.android.go.sopt.domain.repository.AuthRepository
-import org.android.go.sopt.util.UiState
-import org.android.go.sopt.util.UiState.Failure
-import org.android.go.sopt.util.UiState.Success
+import org.android.go.sopt.util.state.LocalUiState
+import org.android.go.sopt.util.state.LocalUiState.Failure
+import org.android.go.sopt.util.state.LocalUiState.Success
 import javax.inject.Inject
 
 @HiltViewModel
@@ -17,8 +17,8 @@ class LoginViewModel @Inject constructor(
 ) : ViewModel() {
     var signedUpUser = User()
 
-    private val _loginState = MutableLiveData<UiState>()
-    val loginState: LiveData<UiState>
+    private val _loginState = MutableLiveData<LocalUiState>()
+    val loginState: LiveData<LocalUiState>
         get() = _loginState
 
     val id = MutableLiveData("")
