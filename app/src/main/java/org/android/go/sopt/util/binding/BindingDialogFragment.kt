@@ -2,7 +2,6 @@ package org.android.go.sopt.util.binding
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
@@ -10,14 +9,12 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
-import com.google.android.material.internal.ViewUtils.hideKeyboard
 import org.android.go.sopt.R
-import org.android.go.sopt.util.extension.hideKeyboard
 
 abstract class BindingDialogFragment<B : ViewDataBinding>(@LayoutRes private val layoutRes: Int) :
     DialogFragment() {
     private var _binding: B? = null
-    val binding get() = requireNotNull(_binding!!) { getString(R.string.binding_error_msg) }
+    protected val binding get() = requireNotNull(_binding!!) { getString(R.string.binding_error_msg) }
 
     override fun onStart() {
         super.onStart()
