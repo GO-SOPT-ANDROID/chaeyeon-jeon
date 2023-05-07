@@ -51,7 +51,6 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
         repoHeaderAdapter = null
         repoItemAdapter = null
     }
