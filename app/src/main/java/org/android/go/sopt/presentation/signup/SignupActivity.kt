@@ -30,7 +30,7 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
     private fun setupSignupState() {
         viewModel.signupState.observe(this) { state ->
             when (state) {
-                is Success -> intentToLogin()
+                is Success -> navigateToLoginScreen()
                 is Failure -> {
                     when (state.code) {
                         CODE_INVALID_ID -> showSnackbar(
@@ -48,7 +48,7 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
         }
     }
 
-    private fun intentToLogin() {
+    private fun navigateToLoginScreen() {
         Intent(this, LoginActivity::class.java).apply {
             this.putExtra(EXTRA_USER, viewModel.getUser())
             setResult(Activity.RESULT_OK, this)

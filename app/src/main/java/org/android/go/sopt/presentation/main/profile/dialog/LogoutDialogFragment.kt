@@ -37,11 +37,11 @@ class LogoutDialogFragment :
         binding.btnLogoutDialogLogout.setOnSingleClickListener {
             viewModel.clearLocalPref()
             requireContext().showToast(getString(R.string.profile_logout_msg))
-            intentToLogin()
+            navigateToLoginScreen()
         }
     }
 
-    private fun intentToLogin() {
+    private fun navigateToLoginScreen() {
         Intent(activity, LoginActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(this)
