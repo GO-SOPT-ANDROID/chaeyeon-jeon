@@ -35,11 +35,11 @@ class SignupViewModel @Inject constructor(
 
     fun signup() {
         if (!isValidId(id.value)) {
-            _signupState.value = Failure(INVALID_ID_CODE)
+            _signupState.value = Failure(CODE_INVALID_ID)
             return
         }
         if (!isValidPwd(pwd.value)) {
-            _signupState.value = Failure(INVALID_PWD_CODE)
+            _signupState.value = Failure(CODE_INVALID_PWD)
             return
         }
         authRepository.setSignedUpUser(getUser())
@@ -62,7 +62,7 @@ class SignupViewModel @Inject constructor(
         const val MIN_PWD_LENGTH = 8
         const val MAX_PWD_LENGTH = 12
 
-        const val INVALID_ID_CODE = 100
-        const val INVALID_PWD_CODE = 101
+        const val CODE_INVALID_ID = 100
+        const val CODE_INVALID_PWD = 101
     }
 }

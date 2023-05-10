@@ -8,14 +8,17 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import org.android.go.sopt.R
-import org.android.go.sopt.domain.model.User
 import org.android.go.sopt.databinding.ActivityLoginBinding
+import org.android.go.sopt.domain.model.User
 import org.android.go.sopt.presentation.main.MainActivity
 import org.android.go.sopt.presentation.signup.SignupActivity
 import org.android.go.sopt.util.UiState.Failure
 import org.android.go.sopt.util.UiState.Success
 import org.android.go.sopt.util.binding.BindingActivity
-import org.android.go.sopt.util.extension.* // ktlint-disable no-wildcard-imports
+import org.android.go.sopt.util.extension.getCompatibleParcelableExtra
+import org.android.go.sopt.util.extension.setOnSingleClickListener
+import org.android.go.sopt.util.extension.showSnackbar
+import org.android.go.sopt.util.extension.showToast
 
 @AndroidEntryPoint
 class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_login) {
@@ -25,13 +28,8 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
 
-        initLayout()
         initSignupBtnClickListener()
         setupLoginState()
-    }
-
-    private fun initLayout() {
-        binding.layoutLogin.setOnSingleClickListener { hideKeyboard() }
     }
 
     private fun initSignupBtnClickListener() {
@@ -54,13 +52,13 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
     private fun setupLoginState() {
         viewModel.loginState.observe(this) { state ->
             when (state) {
-                is Success -> intentToMain()
+                is Success -> navigateToMainScreen()
                 is Failure -> showSnackbar(binding.root, getString(R.string.wrong_input_msg))
             }
         }
     }
 
-    private fun intentToMain() {
+    private fun navigateToMainScreen() {
         showToast(getString(R.string.login_login_success_msg))
         Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

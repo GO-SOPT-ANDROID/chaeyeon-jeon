@@ -1,13 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
 
-    <color name="coral_500">#FFFF8265</color>
+    <color name="coral_800">#FFE63F24</color>
+    <color name="coral_700">#FFF05030</color>
     <color name="coral_600">#FFFE6C4A</color>
+    <color name="coral_500">#FFFF8265</color>
+    <color name="coral_400">#FFFE8C7D</color>
+    <color name="coral_300">#FFFEB09F</color>
+    <color name="coral_200">#FFFED7BC</color>
+
+    <color name="mint_600">#FF00A5CB</color>
+    <color name="mint_500">#FF2CC9ED</color>
+    <color name="mint_400">#FF69D6EF</color>
+    <color name="mint_300">#FFAEEDFC</color>
+    <color name="mint_200">#FFCEF6FF</color>
+
+    <color name="green_600">#FF90B400</color>
+    <color name="green_500">#FFCBEC00</color>
+    <color name="green_400">#FFE0F657</color>
+    <color name="green_300">#FFF0FF96</color>
+    <color name="green_200">#FFF9FFCD</color>
+
+    <color name="purple_600">#FF3A1FAD</color>
+    <color name="purple_500">#FF6948F7</color>
+    <color name="purple_400">#FF7F63FA</color>
+    <color name="purple_300">#FFC6B9FF</color>
+    <color name="purple_200">#FFE6E0FF</color>
+
+    <color name="pink_600">#FFD23C69</color>
+    <color name="pink_500">#FFFD6D90</color>
+    <color name="pink_400">#FFFE8BAE</color>
+    <color name="pink_300">#FFFEC4D6</color>
+    <color name="pink_200">#FFFFE1E9</color>
+
+    <color name="gray_900">#FF090A0B</color>
+    <color name="gray_800">#FF1F1F1F</color>
+    <color name="gray_700">#FF333333</color>
+    <color name="gary_600">#FF474747</color>
+    <color name="gray_500">#FF5C5C5C</color>
+    <color name="gray_400">#FFADADAD</color>
+    <color name="gray_300">#FFD6D6D6</color>
+    <color name="gray_200">#FFEDEDED</color>
+    <color name="gray_100">#FFF7F7F7</color>
 </resources>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GO SOPT Android</string>
+    <string name="app_name">GO SOPT</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- common -->
@@ -36,18 +36,28 @@
     <string name="main_search">검색</string>
     <string name="main_profile">프로필</string>
 
+    <!-- home -->
+    <string name="home_get_repo_list_fail_msg">리포지토리 목록 불러오기에 실패했습니다.</string>
+    <string name="home_repo_header_title">Repository List</string>
+    <string name="home_repo_img_description">리포지토리 %s 이미지</string>
+
+    <!-- gallery -->
+    <string name="gallery_fragment">GALLERY FRAGMENT</string>
+
+    <!-- search -->
+    <string name="search_fragment">SEARCH FRAGMENT</string>
+
     <!-- profile -->
     <string name="profile_name">이름 : %s</string>
     <string name="profile_specialty">특기 : %s</string>
     <string name="profile_mbti">MBTI : %s</string>
-    <string name="profile_logout_and_leave_btn">LOG OUT &amp; LEAVE</string>
-    <string name="profile_logout_and_leave_msg">회원 정보가 삭제되었습니다.</string>
+    <string name="profile_logout_btn">LOG OUT</string>
+    <string name="profile_logout_msg">회원 정보가 삭제되었습니다.</string>
     <string name="profile_img_description">프로필 이미지</string>
 
-    <!-- home -->
-    <string name="home_get_repo_list_fail_msg">리포지토리 목록 불러오기에 실패했습니다.</string>
-    <!-- home : repo item -->
-    <string name="home_repo_img_description">리포지토리 %s 이미지</string>
-    <!-- home : repo header -->
-    <string name="home_repo_header_title">Repository List</string>
+    <!-- logout dialog -->
+    <string name="logout_dialog_question">로그아웃 하시겠습니까?</string>
+    <string name="logout_dialog_description">모든 회원 정보가 삭제됩니다.</string>
+    <string name="logout_dialog_cancel">CANCEL</string>
+    <string name="logout_dialog_logout">LOG OUT</string>
 </resources>

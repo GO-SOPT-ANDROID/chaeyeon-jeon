@@ -11,5 +11,8 @@ class SearchFragment : BindingFragment<FragmentSearchBinding>(R.layout.fragment_
         super.onViewCreated(view, savedInstanceState)
     }
 
-    fun newInstance() = SearchFragment()
+    companion object {
+        @JvmStatic
+        fun newInstance() = SearchFragment()
+    }
 }

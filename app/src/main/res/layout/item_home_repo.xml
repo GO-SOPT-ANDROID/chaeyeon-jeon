@@ -35,9 +35,8 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="@{data.name}"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:textColor="?colorOnSurface"
             app:layout_constraintEnd_toEndOf="@id/flow_repo_description"
             app:layout_constraintStart_toStartOf="@id/flow_repo_description"
             tools:text="@string/dummy" />
@@ -49,7 +48,8 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="@{data.owner}"
-            android:textColor="@color/black"
+            android:textAppearance="?textAppearanceBodySmall"
+            android:textColor="?colorOnSurface"
             app:layout_constraintEnd_toEndOf="@id/flow_repo_description"
             app:layout_constraintStart_toStartOf="@id/flow_repo_description"
             tools:text="@string/dummy" />

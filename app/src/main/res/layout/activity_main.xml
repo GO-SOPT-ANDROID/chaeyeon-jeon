@@ -15,16 +15,24 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fcv_main_container"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@id/bnv_main"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout="@layout/fragment_home" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bnv_main"
             android:layout_width="0dp"
-            android:layout_height="56dp"
+            android:layout_height="wrap_content"
+            android:background="?colorPrimaryVariant"
+            app:itemActiveIndicatorStyle="@style/Widget.GoSopt.BottomNavigationView.ActiveIndicator"
+            app:itemIconTint="@drawable/sel_main_color_bot_nav_menu"
+            app:itemTextAppearanceActive="?textAppearanceCaption"
+            app:itemTextAppearanceInactive="?textAppearanceCaption"
+            app:itemTextColor="?android:colorBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

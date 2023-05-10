@@ -18,10 +18,12 @@
 
         <ScrollView
             android:id="@+id/sv_signup"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="6dp"
             app:layout_constraintBottom_toTopOf="@id/btn_signup_signup_complete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,23 +38,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/login_id_label"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                    android:textColor="?colorOnBackground"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/et_signup_id"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:hint="@string/login_id_hint"
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:maxLength="@{vm.MAX_ID_LENGTH}"
-                    android:paddingVertical="12dp"
+                    android:paddingVertical="16dp"
                     android:text="@={vm.id}"
+                    android:textAppearance="@style/TextAppearance.GoSopt.BodyLarge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_signup_id_label" />
 
                 <TextView
@@ -61,23 +65,25 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/login_pwd_label"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                    android:textColor="?colorOnBackground"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/et_signup_id" />
 
                 <EditText
                     android:id="@+id/et_signup_pwd"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:hint="@string/login_pwd_hint"
                     android:imeOptions="actionNext"
                     android:inputType="textPassword"
                     android:maxLength="@{vm.MAX_PWD_LENGTH}"
-                    android:paddingVertical="12dp"
+                    android:paddingVertical="16dp"
                     android:text="@={vm.pwd}"
+                    android:textAppearance="@style/TextAppearance.GoSopt.BodyLarge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_signup_pwd_label" />
 
                 <TextView
@@ -86,22 +92,24 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/signup_name_label"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                    android:textColor="?colorOnBackground"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/et_signup_pwd" />
 
                 <EditText
                     android:id="@+id/et_signup_name"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:hint="@string/signup_name_hint"
                     android:imeOptions="actionNext"
                     android:inputType="text|textPersonName"
-                    android:paddingVertical="12dp"
+                    android:paddingVertical="16dp"
                     android:text="@={vm.name}"
+                    android:textAppearance="@style/TextAppearance.GoSopt.BodyLarge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_signup_name_label" />
 
                 <TextView
@@ -110,22 +118,24 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/signup_specialty_label"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                    android:textColor="?colorOnBackground"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/et_signup_name" />
 
                 <EditText
                     android:id="@+id/et_signup_specialty"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:hint="@string/signup_specialty_hint"
                     android:imeOptions="actionNext"
                     android:inputType="text"
-                    android:paddingVertical="12dp"
+                    android:paddingVertical="16dp"
                     android:text="@={vm.specialty}"
+                    android:textAppearance="@style/TextAppearance.GoSopt.BodyLarge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_signup_specialty_label" />
 
                 <TextView
@@ -134,22 +144,24 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/signup_mbti_label"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                    android:textColor="?colorOnBackground"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/et_signup_specialty" />
 
                 <EditText
                     android:id="@+id/et_signup_mbti"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:hint="@string/signup_mbti_hint"
                     android:imeOptions="actionDone"
                     android:inputType="textCapCharacters"
-                    android:paddingVertical="12dp"
+                    android:paddingVertical="16dp"
                     android:text="@={vm.mbti}"
+                    android:textAppearance="@style/TextAppearance.GoSopt.BodyLarge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_signup_mbti_label" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
@@ -163,8 +175,7 @@
             android:onClick="@{()->vm.signup()}"
             android:paddingVertical="16dp"
             android:text="@string/signup_signup_complete_btn"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
             app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

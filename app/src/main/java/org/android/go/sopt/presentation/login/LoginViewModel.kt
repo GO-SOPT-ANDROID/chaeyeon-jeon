@@ -25,10 +25,10 @@ class LoginViewModel @Inject constructor(
     val pwd = MutableLiveData("")
 
     init {
-        checkAutoLogin()
+        setupAutoLogin()
     }
 
-    private fun checkAutoLogin() {
+    private fun setupAutoLogin() {
         if (authRepository.getAutoLogin() && authRepository.getSignedUpUser() != null) _loginState.value = Success
     }
 
