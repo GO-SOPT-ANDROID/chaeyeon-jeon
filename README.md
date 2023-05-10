@@ -17,6 +17,7 @@ develop/view 브랜치에서 새로운 feature 브랜치(seminar1, week1, featur
 |   | EditText inputType | [🔗](https://github.com/GO-SOPT-ANDROID/chaeyeon-jeon/blob/develop/summary/EditText%20inputType.md) |
 |   | Task & Back Stack | [🔗](https://github.com/GO-SOPT-ANDROID/chaeyeon-jeon/blob/develop/summary/Task%20%26%20Back%20Stack.md) |
 | 2 | Fragment Lifecycle | [🔗](https://github.com/GO-SOPT-ANDROID/chaeyeon-jeon/blob/develop/summary/Fragment%20Lifecycle.md) |
+| 3 | Material Design3 Components | [🔗](https://github.com/GO-SOPT-ANDROID/chaeyeon-jeon/blob/develop/summary/Material%20Design3%20Components.md) |
 <br>
 
 <!--
