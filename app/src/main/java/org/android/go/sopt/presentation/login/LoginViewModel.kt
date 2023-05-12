@@ -9,9 +9,10 @@ import kotlinx.coroutines.launch
 import org.android.go.sopt.data.entity.remote.request.RequestPostSignInDto
 import org.android.go.sopt.domain.model.User
 import org.android.go.sopt.domain.repository.AuthRepository
-import org.android.go.sopt.util.state.LocalUiState
-import org.android.go.sopt.util.state.LocalUiState.Failure
-import org.android.go.sopt.util.state.LocalUiState.Success
+import org.android.go.sopt.util.state.RemoteUiState
+import org.android.go.sopt.util.state.RemoteUiState.Error
+import org.android.go.sopt.util.state.RemoteUiState.Failure
+import org.android.go.sopt.util.state.RemoteUiState.Success
 import retrofit2.HttpException
 import timber.log.Timber
 import javax.inject.Inject
@@ -20,8 +21,8 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val authRepository: AuthRepository,
 ) : ViewModel() {
-    private val _loginState = MutableLiveData<LocalUiState>()
-    val loginState: LiveData<LocalUiState>
+    private val _loginState = MutableLiveData<RemoteUiState>()
+    val loginState: LiveData<RemoteUiState>
         get() = _loginState
 
     val _id = MutableLiveData("")
@@ -38,7 +39,7 @@ class LoginViewModel @Inject constructor(
 
     private fun setupAutoLogin() {
         if (authRepository.getAutoLogin() && authRepository.getSignedUpUser() != null) {
-            _loginState.value = Success
+            _loginState.value = RemoteUiState.Success
         }
     }
 
@@ -71,9 +72,17 @@ class LoginViewModel @Inject constructor(
                 }
                 .onFailure { t ->
                     if (t is HttpException) {
+                        when (t.code()) {
+                            CODE_INVALID_INPUT -> _loginState.value = Failure(CODE_INVALID_INPUT)
+                            else -> _loginState.value = Error
+                        }
                         Timber.e("POST SIGNIN FAIL ${t.code()} : ${t.message()}")
                     }
                 }
         }
+    }
+
+    companion object {
+        const val CODE_INVALID_INPUT = 400
     }
 }

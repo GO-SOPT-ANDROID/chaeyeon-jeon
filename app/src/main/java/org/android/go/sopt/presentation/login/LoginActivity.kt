@@ -14,8 +14,9 @@ import org.android.go.sopt.util.binding.BindingActivity
 import org.android.go.sopt.util.extension.setOnSingleClickListener
 import org.android.go.sopt.util.extension.showSnackbar
 import org.android.go.sopt.util.extension.showToast
-import org.android.go.sopt.util.state.LocalUiState.Failure
-import org.android.go.sopt.util.state.LocalUiState.Success
+import org.android.go.sopt.util.state.RemoteUiState.Error
+import org.android.go.sopt.util.state.RemoteUiState.Failure
+import org.android.go.sopt.util.state.RemoteUiState.Success
 
 @AndroidEntryPoint
 class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_login) {
@@ -47,6 +48,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
             when (state) {
                 is Success -> navigateToMainScreen()
                 is Failure -> showSnackbar(binding.root, getString(R.string.wrong_input_msg))
+                is Error -> showSnackbar(binding.root, getString(R.string.unknown_error_msg))
             }
         }
     }

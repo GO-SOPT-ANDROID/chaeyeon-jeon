@@ -10,6 +10,7 @@ import org.android.go.sopt.R
 import org.android.go.sopt.databinding.FragmentFollowerBinding
 import org.android.go.sopt.presentation.main.follower.FollowerAdapter.Companion.VIEW_TYPE_HEADER
 import org.android.go.sopt.util.binding.BindingFragment
+import org.android.go.sopt.util.extension.showSnackbar
 import org.android.go.sopt.util.state.RemoteUiState.Error
 import org.android.go.sopt.util.state.RemoteUiState.Failure
 import org.android.go.sopt.util.state.RemoteUiState.Success
@@ -51,8 +52,8 @@ class FollowerFragment : BindingFragment<FragmentFollowerBinding>(R.layout.fragm
         viewModel.getFollowerListState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is Success -> followerAdapter?.submitList(viewModel.followerList)
-                is Failure -> {}
-                is Error -> {}
+                is Failure -> requireContext().showSnackbar(binding.root, getString(R.string.follower_get_follower_list_null_msg))
+                is Error -> requireContext().showSnackbar(binding.root, getString(R.string.unknown_error_msg))
             }
         }
     }

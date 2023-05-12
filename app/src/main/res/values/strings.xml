@@ -53,6 +53,7 @@
 
     <!-- follower -->
     <string name="follower_header_title">Followers</string>
+    <string name="follower_get_follower_list_null_msg">팔로워가 존재하지 않습니다.</string>
 
     <!-- profile -->
     <string name="profile_name">이름 : %s</string>
