@@ -11,7 +11,7 @@ object BindingAdapter {
     @BindingAdapter("setRoundedCornersImage")
     fun ImageView.setRoundedCornersImage(img: String?) {
         load(img) {
-            placeholder(R.mipmap.ic_go_sopt)
+            placeholder(R.drawable.ic_loading)
             error(R.drawable.ic_image_not_supported)
             fallback(R.drawable.ic_image_not_supported)
             transformations(RoundedCornersTransformation(50f))
@@ -22,7 +22,7 @@ object BindingAdapter {
     @BindingAdapter("setCircleImage")
     fun ImageView.setCircleImage(img: String?) {
         load(img) {
-            placeholder(R.mipmap.ic_go_sopt)
+            placeholder(R.drawable.ic_loading)
             error(R.drawable.ic_image_not_supported)
             fallback(R.drawable.ic_image_not_supported)
             transformations(RoundedCornersTransformation(1000f))
