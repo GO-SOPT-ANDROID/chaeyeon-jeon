@@ -17,4 +17,15 @@ object BindingAdapter {
             transformations(RoundedCornersTransformation(50f))
         }
     }
+
+    @JvmStatic
+    @BindingAdapter("setCircleImage")
+    fun ImageView.setCircleImage(img: String?) {
+        load(img) {
+            placeholder(R.mipmap.ic_go_sopt)
+            error(R.drawable.ic_image_not_supported)
+            fallback(R.drawable.ic_image_not_supported)
+            transformations(RoundedCornersTransformation(1000f))
+        }
+    }
 }

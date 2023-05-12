@@ -52,7 +52,7 @@
     <string name="search_fragment">SEARCH FRAGMENT</string>
 
     <!-- follower -->
-    <string name="follower_fragment">FOLLOWER FRAGMENT</string>
+    <string name="follower_header_title">Followers</string>
 
     <!-- profile -->
     <string name="profile_name">이름 : %s</string>
