@@ -1,4 +1,4 @@
-package org.android.go.sopt.data.entity.remote.wrapper
+package org.android.go.sopt.data.entity.remote.response.wrapper
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -10,5 +10,5 @@ data class BaseResponse<T>(
     @SerialName("message")
     val message: String,
     @SerialName("data")
-    val data: T,
+    val data: T? = null,
 )

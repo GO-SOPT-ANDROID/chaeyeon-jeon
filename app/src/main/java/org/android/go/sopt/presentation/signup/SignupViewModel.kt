@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.android.go.sopt.data.entity.remote.request.RequestPostSignUpDto
-import org.android.go.sopt.domain.model.User
+import org.android.go.sopt.data.entity.local.User
 import org.android.go.sopt.domain.repository.AuthRepository
 import org.android.go.sopt.util.safeValueOf
 import org.android.go.sopt.util.state.RemoteUiState

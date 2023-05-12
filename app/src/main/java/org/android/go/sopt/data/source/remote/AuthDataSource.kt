@@ -1,8 +1,8 @@
-package org.android.go.sopt.data.source
+package org.android.go.sopt.data.source.remote
 
 import org.android.go.sopt.data.entity.remote.request.RequestPostSignUpDto
 import org.android.go.sopt.data.entity.remote.response.ResponsePostSignUpDto
-import org.android.go.sopt.data.entity.remote.wrapper.BaseResponse
+import org.android.go.sopt.data.entity.remote.response.wrapper.BaseResponse
 import org.android.go.sopt.data.service.AuthService
 import javax.inject.Inject
 

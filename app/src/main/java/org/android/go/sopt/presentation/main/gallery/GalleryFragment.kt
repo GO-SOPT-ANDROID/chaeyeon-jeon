@@ -30,7 +30,6 @@ class GalleryFragment : BindingFragment<FragmentGalleryBinding>(R.layout.fragmen
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
         imageAdapter = null
     }
 

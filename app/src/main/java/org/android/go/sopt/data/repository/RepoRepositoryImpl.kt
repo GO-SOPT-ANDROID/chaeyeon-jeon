@@ -1,6 +1,6 @@
 package org.android.go.sopt.data.repository
 
-import org.android.go.sopt.data.source.RepoDataSource
+import org.android.go.sopt.data.source.local.RepoDataSource
 import org.android.go.sopt.domain.model.Repo
 import org.android.go.sopt.domain.repository.RepoRepository
 import javax.inject.Inject

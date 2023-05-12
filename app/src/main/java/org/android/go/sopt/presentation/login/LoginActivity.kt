@@ -9,7 +9,7 @@ import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import org.android.go.sopt.R
 import org.android.go.sopt.databinding.ActivityLoginBinding
-import org.android.go.sopt.domain.model.User
+import org.android.go.sopt.data.entity.local.User
 import org.android.go.sopt.presentation.main.MainActivity
 import org.android.go.sopt.presentation.signup.SignupActivity
 import org.android.go.sopt.util.state.LocalUiState.Failure
