@@ -1,6 +1,8 @@
 package org.android.go.sopt.data.repository
 
+import org.android.go.sopt.data.entity.remote.request.RequestPostSignInDto
 import org.android.go.sopt.data.entity.remote.request.RequestPostSignUpDto
+import org.android.go.sopt.data.entity.remote.response.ResponsePostSignInDto
 import org.android.go.sopt.data.entity.remote.response.ResponsePostSignUpDto
 import org.android.go.sopt.data.source.local.SharedPrefDataSource
 import org.android.go.sopt.data.source.remote.AuthDataSource
@@ -15,6 +17,11 @@ class AuthRepositoryImpl @Inject constructor(
     override suspend fun postSignup(requestPostSignUpDto: RequestPostSignUpDto): Result<ResponsePostSignUpDto?> =
         runCatching {
             authDataSource.postSignup(requestPostSignUpDto).data
+        }
+
+    override suspend fun postSignin(requestPostSignInDto: RequestPostSignInDto): Result<ResponsePostSignInDto?> =
+        runCatching {
+            authDataSource.postSignIn(requestPostSignInDto).data
         }
 
     override fun setAutoLogin(isAutoLogin: Boolean) {

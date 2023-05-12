@@ -8,5 +8,5 @@ data class User(
     val id: String = "",
     val pwd: String = "",
     val name: String = "익명",
-    val specialty: String = "",
+    val specialty: String? = "",
 ) : Parcelable
