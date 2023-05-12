@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import org.android.go.sopt.domain.model.User
 import org.android.go.sopt.domain.repository.AuthRepository
 import org.android.go.sopt.util.state.LocalUiState
 import org.android.go.sopt.util.state.LocalUiState.Failure
@@ -15,8 +14,6 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val authRepository: AuthRepository,
 ) : ViewModel() {
-    var signedUpUser = User()
-
     private val _loginState = MutableLiveData<LocalUiState>()
     val loginState: LiveData<LocalUiState>
         get() = _loginState
@@ -29,21 +26,19 @@ class LoginViewModel @Inject constructor(
     }
 
     private fun setupAutoLogin() {
-        if (authRepository.getAutoLogin() && authRepository.getSignedUpUser() != null) _loginState.value = Success
+        if (authRepository.getAutoLogin() && authRepository.getSignedUpUser() != null) {
+            _loginState.value = Success
+        }
     }
 
-    fun setSavedUser(savedUser: User) {
-        this.signedUpUser = savedUser
-    }
-
-    private fun isValidInput() =
-        !id.value.isNullOrBlank() && id.value == signedUpUser.id && !pwd.value.isNullOrBlank() && pwd.value == signedUpUser.pwd
+    private fun isValidInput() = !id.value.isNullOrBlank() && !pwd.value.isNullOrBlank()
 
     fun login() {
         if (!isValidInput()) {
             _loginState.value = Failure(null)
             return
         }
+        // TODO : 로그인 정보 저장
         authRepository.setAutoLogin(true)
         _loginState.value = Success
     }

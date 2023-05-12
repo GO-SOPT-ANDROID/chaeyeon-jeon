@@ -7,15 +7,11 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.android.go.sopt.data.entity.remote.request.RequestPostSignUpDto
-import org.android.go.sopt.domain.model.User
 import org.android.go.sopt.domain.repository.AuthRepository
-import org.android.go.sopt.util.safeValueOf
 import org.android.go.sopt.util.state.RemoteUiState
 import org.android.go.sopt.util.state.RemoteUiState.Error
 import org.android.go.sopt.util.state.RemoteUiState.Failure
 import org.android.go.sopt.util.state.RemoteUiState.Success
-import org.android.go.sopt.util.type.MBTI
-import org.android.go.sopt.util.type.MBTI.NONE
 import retrofit2.HttpException
 import timber.log.Timber
 import javax.inject.Inject
@@ -43,10 +39,6 @@ class SignupViewModel @Inject constructor(
     val _specialty = MutableLiveData("")
     private val specialty: String
         get() = _specialty.value?.trim() ?: ""
-
-    val _mbti = MutableLiveData("")
-    private val mbti: MBTI
-        get() = safeValueOf(_mbti.value?.trim()?.uppercase(), NONE)
 
     private fun isValidId() = id.isNotBlank() && id.length in MIN_ID_LENGTH..MAX_ID_LENGTH
 
@@ -80,7 +72,6 @@ class SignupViewModel @Inject constructor(
         viewModelScope.launch {
             authRepository.postSignup(requestPostSignUpDto)
                 .onSuccess { response ->
-                    authRepository.setSignedUpUser(getUser())
                     _signupState.value = Success
                     Timber.d("POST SIGNUP SUCCESS : $response")
                 }
@@ -95,16 +86,6 @@ class SignupViewModel @Inject constructor(
                     }
                 }
         }
-    }
-
-    fun getUser(): User {
-        return User(
-            id = id,
-            pwd = pwd,
-            name = name,
-            specialty = specialty,
-            mbti = mbti,
-        )
     }
 
     companion object {

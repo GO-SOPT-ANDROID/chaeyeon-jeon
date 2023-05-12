@@ -137,32 +137,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_signup_specialty_label" />
-
-                <TextView
-                    android:id="@+id/tv_signup_mbti_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/signup_mbti_label"
-                    android:textAppearance="?attr/textAppearanceHeadlineSmall"
-                    android:textColor="?colorOnBackground"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/et_signup_specialty" />
-
-                <EditText
-                    android:id="@+id/et_signup_mbti"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:hint="@string/signup_mbti_hint"
-                    android:imeOptions="actionDone"
-                    android:inputType="textCapCharacters"
-                    android:paddingVertical="16dp"
-                    android:text="@={vm._mbti}"
-                    android:textAppearance="@style/TextAppearance.GoSopt.BodyLarge"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_signup_mbti_label" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 

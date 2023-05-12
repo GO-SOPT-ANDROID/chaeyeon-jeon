@@ -2,23 +2,20 @@ package org.android.go.sopt.presentation.login
 
 import android.app.Activity
 import android.content.Intent
-import android.content.Intent.EXTRA_USER
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import org.android.go.sopt.R
 import org.android.go.sopt.databinding.ActivityLoginBinding
-import org.android.go.sopt.domain.model.User
 import org.android.go.sopt.presentation.main.MainActivity
 import org.android.go.sopt.presentation.signup.SignupActivity
-import org.android.go.sopt.util.state.LocalUiState.Failure
-import org.android.go.sopt.util.state.LocalUiState.Success
 import org.android.go.sopt.util.binding.BindingActivity
-import org.android.go.sopt.util.extension.getCompatibleParcelableExtra
 import org.android.go.sopt.util.extension.setOnSingleClickListener
 import org.android.go.sopt.util.extension.showSnackbar
 import org.android.go.sopt.util.extension.showToast
+import org.android.go.sopt.util.state.LocalUiState.Failure
+import org.android.go.sopt.util.state.LocalUiState.Success
 
 @AndroidEntryPoint
 class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_login) {
@@ -36,11 +33,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
         val signupResultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
-                    val resultData = result.data ?: return@registerForActivityResult
-                    resultData.getCompatibleParcelableExtra<User>(EXTRA_USER)?.let { user ->
-                        viewModel.setSavedUser(user)
-                        showSnackbar(binding.root, getString(R.string.login_signup_success_msg))
-                    }
+                    showSnackbar(binding.root, getString(R.string.login_signup_success_msg))
                 }
             }
 
