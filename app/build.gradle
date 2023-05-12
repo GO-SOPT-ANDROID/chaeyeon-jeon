@@ -25,6 +25,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "BASE_URL", properties['base.url']
+        buildConfigField "String", "REQRES_URL", properties['reqres.url']
     }
 
     buildTypes {

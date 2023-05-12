@@ -10,7 +10,10 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.android.go.sopt.BuildConfig.BASE_URL
+import org.android.go.sopt.BuildConfig.REQRES_URL
+import org.android.go.sopt.util.type.BaseUrlType
 import retrofit2.Retrofit
+import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module
@@ -31,7 +34,8 @@ object RetrofitModule {
 
     @Provides
     @Singleton
-    fun providesRetrofit(
+    @Retrofit2(BaseUrlType.SOPT)
+    fun providesSoptRetrofit(
         client: OkHttpClient,
     ): Retrofit =
         Retrofit.Builder()
@@ -39,4 +43,19 @@ object RetrofitModule {
             .addConverterFactory(Json.asConverterFactory(APPLICATION_JSON.toMediaType()))
             .client(client)
             .build()
+
+    @Provides
+    @Singleton
+    @Retrofit2(BaseUrlType.REQRES)
+    fun providesReqresRetrofit(
+        client: OkHttpClient,
+    ): Retrofit =
+        Retrofit.Builder()
+            .baseUrl(REQRES_URL)
+            .addConverterFactory(Json.asConverterFactory(APPLICATION_JSON.toMediaType()))
+            .client(client)
+            .build()
+
+    @Qualifier
+    annotation class Retrofit2(val baseUrlType: BaseUrlType)
 }
