@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.android.go.sopt.data.entity.remote.request.RequestPostSignUpDto
-import org.android.go.sopt.data.entity.local.User
+import org.android.go.sopt.domain.model.User
 import org.android.go.sopt.domain.repository.AuthRepository
 import org.android.go.sopt.util.safeValueOf
 import org.android.go.sopt.util.state.RemoteUiState
@@ -29,38 +29,44 @@ class SignupViewModel @Inject constructor(
         get() = _signupState
 
     val _id = MutableLiveData("")
-    val id: String
-        get() = requireNotNull(_id.value).trim()
+    private val id: String
+        get() = _id.value?.trim() ?: ""
 
     val _pwd = MutableLiveData("")
-    val pwd: String
-        get() = requireNotNull(_pwd.value).trim()
+    private val pwd: String
+        get() = _pwd.value?.trim() ?: ""
 
     val _name = MutableLiveData("")
-    val name: String
+    private val name: String
         get() = _name.value?.trim() ?: ""
 
     val _specialty = MutableLiveData("")
-    val specialty: String
+    private val specialty: String
         get() = _specialty.value?.trim() ?: ""
 
     val _mbti = MutableLiveData("")
-    val mbti: MBTI?
+    private val mbti: MBTI
         get() = safeValueOf(_mbti.value?.trim()?.uppercase(), NONE)
 
-    private fun isValidId(id: String?) =
-        !id.isNullOrBlank() && id.length in MIN_ID_LENGTH..MAX_ID_LENGTH
+    private fun isValidId() = id.isNotBlank() && id.length in MIN_ID_LENGTH..MAX_ID_LENGTH
 
-    private fun isValidPwd(pwd: String?) =
-        !pwd.isNullOrBlank() && pwd.length in MIN_PWD_LENGTH..MAX_PWD_LENGTH
+    private fun isValidPwd() = pwd.isNotBlank() && pwd.length in MIN_PWD_LENGTH..MAX_PWD_LENGTH
+
+    private fun isValidName() = name.isNotBlank()
 
     fun signup() {
-        if (!isValidId(_id.value)) {
+        if (!isValidId()) {
             _signupState.value = Failure(CODE_INVALID_ID)
             return
         }
-        if (!isValidPwd(_pwd.value)) {
+
+        if (!isValidPwd()) {
             _signupState.value = Failure(CODE_INVALID_PWD)
+            return
+        }
+
+        if (!isValidName()) {
+            _signupState.value = Failure(CODE_INVALID_NAME)
             return
         }
 
@@ -70,17 +76,22 @@ class SignupViewModel @Inject constructor(
             name = name,
             skill = specialty,
         )
+
         viewModelScope.launch {
             authRepository.postSignup(requestPostSignUpDto)
                 .onSuccess { response ->
                     authRepository.setSignedUpUser(getUser())
                     _signupState.value = Success
-                    Timber.d("$response")
+                    Timber.d("POST SIGNUP SUCCESS : $response")
                 }
                 .onFailure { t ->
                     if (t is HttpException) {
-                        Timber.e("${t.code()} : ${t.message()}")
-                        _signupState.value = Error
+                        when (t.code()) {
+                            CODE_INVALID_INPUT -> _signupState.value = Failure(CODE_INVALID_INPUT)
+                            CODE_DUPLICATED_INFO -> _signupState.value = Failure(CODE_DUPLICATED_INFO)
+                            else -> _signupState.value = Error
+                        }
+                        Timber.e("POST SIGNUP FAIL ${t.code()} : ${t.message()}")
                     }
                 }
         }
@@ -104,5 +115,8 @@ class SignupViewModel @Inject constructor(
 
         const val CODE_INVALID_ID = 100
         const val CODE_INVALID_PWD = 101
+        const val CODE_INVALID_NAME = 102
+        const val CODE_INVALID_INPUT = 400
+        const val CODE_DUPLICATED_INFO = 409
     }
 }

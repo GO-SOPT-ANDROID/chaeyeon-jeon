@@ -9,7 +9,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import org.android.go.sopt.R
 import org.android.go.sopt.databinding.ActivitySignupBinding
 import org.android.go.sopt.presentation.login.LoginActivity
+import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_DUPLICATED_INFO
 import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_INVALID_ID
+import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_INVALID_INPUT
+import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_INVALID_NAME
 import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_INVALID_PWD
 import org.android.go.sopt.util.binding.BindingActivity
 import org.android.go.sopt.util.extension.showSnackbar
@@ -43,10 +46,25 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
                             binding.root,
                             getString(R.string.signup_invalid_pwd_msg),
                         )
+
+                        CODE_INVALID_NAME -> showSnackbar(
+                            binding.root,
+                            getString(R.string.signup_invalid_name_msg),
+                        )
+
+                        CODE_INVALID_INPUT -> showSnackbar(
+                            binding.root,
+                            getString(R.string.wrong_input_msg),
+                        )
+
+                        CODE_DUPLICATED_INFO -> showSnackbar(
+                            binding.root,
+                            getString(R.string.signup_duplicated_info_msg),
+                        )
                     }
                 }
 
-                is Error -> showSnackbar(binding.root, getString(R.string.server_error_msg))
+                is Error -> showSnackbar(binding.root, getString(R.string.unknown_error_msg))
             }
         }
     }

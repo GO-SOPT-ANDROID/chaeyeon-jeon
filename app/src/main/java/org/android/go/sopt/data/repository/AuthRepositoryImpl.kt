@@ -4,7 +4,7 @@ import org.android.go.sopt.data.entity.remote.request.RequestPostSignUpDto
 import org.android.go.sopt.data.entity.remote.response.ResponsePostSignUpDto
 import org.android.go.sopt.data.source.local.SharedPrefDataSource
 import org.android.go.sopt.data.source.remote.AuthDataSource
-import org.android.go.sopt.data.entity.local.User
+import org.android.go.sopt.domain.model.User
 import org.android.go.sopt.domain.repository.AuthRepository
 import javax.inject.Inject
 
