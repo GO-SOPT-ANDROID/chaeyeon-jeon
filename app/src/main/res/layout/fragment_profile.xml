@@ -53,19 +53,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_profile_name" />
 
-        <TextView
-            android:id="@+id/tv_profile_mbti"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@{@string/profile_mbti(vm.signedUpUser.mbti)}"
-            android:textAppearance="?textAppearanceBodyLarge"
-            android:textColor="?colorOnBackground"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_profile_specialty" />
-
         <Button
             android:id="@+id/btn_profile_logout"
             android:layout_width="0dp"
