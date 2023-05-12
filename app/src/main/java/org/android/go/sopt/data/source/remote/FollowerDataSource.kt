@@ -7,6 +7,6 @@ import javax.inject.Inject
 class FollowerDataSource @Inject constructor(
     private val followerService: FollowerService,
 ) {
-    fun getFollowerList(page: Int): ResponseGetFollowerListDto =
+    suspend fun getFollowerList(page: Int): ResponseGetFollowerListDto =
         followerService.getFollowerList(page)
 }

@@ -43,6 +43,7 @@ data class ResponseGetFollowerListDto(
 
     fun toFollower() = data.map { follower ->
         Follower(
+            id = follower.id,
             name = "${follower.firstName} ${follower.lastName}",
             profile = follower.avatar,
             email = follower.email,
