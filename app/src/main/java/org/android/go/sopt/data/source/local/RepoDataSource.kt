@@ -1,8 +1,8 @@
-package org.android.go.sopt.data.source
+package org.android.go.sopt.data.source.local
 
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
-import org.android.go.sopt.data.entity.MockRepoDto
+import org.android.go.sopt.data.entity.local.MockRepoDto
 import org.android.go.sopt.util.AssetLoader
 import javax.inject.Inject
 

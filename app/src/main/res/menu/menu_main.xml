@@ -13,6 +13,10 @@
         android:icon="@drawable/ic_main_search"
         android:title="@string/main_search" />
     <item
+        android:id="@+id/menu_follower"
+        android:icon="@drawable/ic_main_follower"
+        android:title="@string/main_follower" />
+    <item
         android:id="@+id/menu_profile"
         android:icon="@drawable/ic_main_profile"
         android:title="@string/main_profile" />

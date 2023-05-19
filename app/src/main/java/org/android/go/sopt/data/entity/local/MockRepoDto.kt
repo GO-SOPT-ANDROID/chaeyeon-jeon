@@ -1,4 +1,4 @@
-package org.android.go.sopt.data.entity
+package org.android.go.sopt.data.entity.local
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -10,6 +10,7 @@ data class MockRepoDto(
     val allowForking: Boolean,
     @SerialName("archive_url")
     val archiveUrl: String,
+    @SerialName("archived")
     val archived: Boolean,
     @SerialName("assignees_url")
     val assigneesUrl: String,
@@ -37,13 +38,17 @@ data class MockRepoDto(
     val defaultBranch: String,
     @SerialName("deployments_url")
     val deploymentsUrl: String,
+    @SerialName("description")
     val description: String,
+    @SerialName("disabled")
     val disabled: Boolean,
     @SerialName("downloads_url")
     val downloadsUrl: String,
     @SerialName("events_url")
     val eventsUrl: String,
+    @SerialName("fork")
     val fork: Boolean,
+    @SerialName("forks")
     val forks: Int,
     @SerialName("forks_count")
     val forksCount: Int,
@@ -71,11 +76,13 @@ data class MockRepoDto(
     val hasProjects: Boolean,
     @SerialName("has_wiki")
     val hasWiki: Boolean,
+    @SerialName("homepage")
     val homepage: String,
     @SerialName("hooks_url")
     val hooksUrl: String,
     @SerialName("html_url")
     val htmlUrl: String,
+    @SerialName("id")
     val id: Int,
     @SerialName("is_template")
     val isTemplate: Boolean,
@@ -89,9 +96,11 @@ data class MockRepoDto(
     val keysUrl: String,
     @SerialName("labels_url")
     val labelsUrl: String,
+    @SerialName("language")
     val language: String?,
     @SerialName("languages_url")
     val languagesUrl: String,
+    @SerialName("license")
     val license: String?,
     @SerialName("merges_url")
     val mergesUrl: String,
@@ -99,6 +108,7 @@ data class MockRepoDto(
     val milestonesUrl: String,
     @SerialName("mirror_url")
     val mirrorUrl: String?,
+    @SerialName("name")
     val name: String,
     @SerialName("node_id")
     val nodeId: String,
@@ -108,6 +118,7 @@ data class MockRepoDto(
     val openIssues: Int,
     @SerialName("open_issues_count")
     val openIssuesCount: Int,
+    @SerialName("owner")
     val owner: Owner,
     @SerialName("private")
     val isPrivate: Boolean,
@@ -117,6 +128,7 @@ data class MockRepoDto(
     val pushedAt: String,
     @SerialName("releases_url")
     val releasesUrl: String,
+    @SerialName("size")
     val size: Int,
     @SerialName("ssh_url")
     val sshUrl: String,
@@ -136,13 +148,17 @@ data class MockRepoDto(
     val tagsUrl: String,
     @SerialName("teams_url")
     val teamsUrl: String,
+    @SerialName("topics")
     val topics: List<String>,
     @SerialName("trees_url")
     val treesUrl: String,
     @SerialName("updated_at")
     val updatedAt: String,
+    @SerialName("url")
     val url: String,
+    @SerialName("visibility")
     val visibility: String,
+    @SerialName("watchers")
     val watchers: Int,
     @SerialName("watchers_count")
     val watchersCount: Int,
@@ -165,7 +181,9 @@ data class MockRepoDto(
         val gravatarId: String,
         @SerialName("html_url")
         val htmlUrl: String,
+        @SerialName("id")
         val id: Int,
+        @SerialName("login")
         val login: String,
         @SerialName("node_id")
         val nodeId: String,
@@ -181,7 +199,9 @@ data class MockRepoDto(
         val starredUrl: String,
         @SerialName("subscriptions_url")
         val subscriptionsUrl: String,
+        @SerialName("type")
         val type: String,
+        @SerialName("url")
         val url: String,
     )
 

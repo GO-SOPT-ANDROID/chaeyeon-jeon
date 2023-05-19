@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.ConcatAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import org.android.go.sopt.R
 import org.android.go.sopt.databinding.FragmentHomeBinding
-import org.android.go.sopt.util.UiState.Failure
-import org.android.go.sopt.util.UiState.Success
 import org.android.go.sopt.util.binding.BindingFragment
 import org.android.go.sopt.util.extension.showSnackbar
+import org.android.go.sopt.util.state.LocalUiState.Failure
+import org.android.go.sopt.util.state.LocalUiState.Success
 
 @AndroidEntryPoint
 class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {

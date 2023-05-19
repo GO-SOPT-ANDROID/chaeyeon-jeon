@@ -1,4 +1,4 @@
-package org.android.go.sopt.data.source
+package org.android.go.sopt.data.source.local
 
 import android.content.SharedPreferences
 import androidx.core.content.edit
@@ -9,7 +9,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class LocalPrefDataSource @Inject constructor(
+class SharedPrefDataSource @Inject constructor(
     private val prefs: SharedPreferences,
 ) {
     var isAutoLogin: Boolean
@@ -30,9 +30,7 @@ class LocalPrefDataSource @Inject constructor(
             }
         }
 
-    fun clearLocalPref() {
-        prefs.edit { clear() }
-    }
+    fun clearLocalPref() = prefs.edit { clear() }
 
     companion object {
         const val PREF_IS_AUTO_LOGIN = "IS_AUTO_LOGIN"

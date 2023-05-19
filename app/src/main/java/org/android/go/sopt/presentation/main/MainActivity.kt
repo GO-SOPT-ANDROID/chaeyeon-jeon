@@ -7,6 +7,7 @@ import androidx.fragment.app.replace
 import dagger.hilt.android.AndroidEntryPoint
 import org.android.go.sopt.R
 import org.android.go.sopt.databinding.ActivityMainBinding
+import org.android.go.sopt.presentation.main.follower.FollowerFragment
 import org.android.go.sopt.presentation.main.gallery.GalleryFragment
 import org.android.go.sopt.presentation.main.home.HomeFragment
 import org.android.go.sopt.presentation.main.profile.ProfileFragment
@@ -30,6 +31,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
                 R.id.menu_home -> navigateTo<HomeFragment>()
                 R.id.menu_gallery -> navigateTo<GalleryFragment>()
                 R.id.menu_search -> navigateTo<SearchFragment>()
+                R.id.menu_follower -> navigateTo<FollowerFragment>()
                 R.id.menu_profile -> navigateTo<ProfileFragment>()
             }
             true

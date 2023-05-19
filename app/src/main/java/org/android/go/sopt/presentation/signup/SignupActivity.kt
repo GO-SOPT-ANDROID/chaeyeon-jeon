@@ -2,19 +2,22 @@ package org.android.go.sopt.presentation.signup
 
 import android.app.Activity
 import android.content.Intent
-import android.content.Intent.EXTRA_USER
 import android.os.Bundle
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import org.android.go.sopt.R
 import org.android.go.sopt.databinding.ActivitySignupBinding
 import org.android.go.sopt.presentation.login.LoginActivity
+import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_DUPLICATED_INFO
 import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_INVALID_ID
+import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_INVALID_INPUT
+import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_INVALID_NAME
 import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_INVALID_PWD
-import org.android.go.sopt.util.UiState.Failure
-import org.android.go.sopt.util.UiState.Success
 import org.android.go.sopt.util.binding.BindingActivity
 import org.android.go.sopt.util.extension.showSnackbar
+import org.android.go.sopt.util.state.RemoteUiState.Error
+import org.android.go.sopt.util.state.RemoteUiState.Failure
+import org.android.go.sopt.util.state.RemoteUiState.Success
 
 @AndroidEntryPoint
 class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_signup) {
@@ -42,15 +45,31 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
                             binding.root,
                             getString(R.string.signup_invalid_pwd_msg),
                         )
+
+                        CODE_INVALID_NAME -> showSnackbar(
+                            binding.root,
+                            getString(R.string.signup_invalid_name_msg),
+                        )
+
+                        CODE_INVALID_INPUT -> showSnackbar(
+                            binding.root,
+                            getString(R.string.wrong_input_msg),
+                        )
+
+                        CODE_DUPLICATED_INFO -> showSnackbar(
+                            binding.root,
+                            getString(R.string.signup_duplicated_info_msg),
+                        )
                     }
                 }
+
+                is Error -> showSnackbar(binding.root, getString(R.string.unknown_error_msg))
             }
         }
     }
 
     private fun navigateToLoginScreen() {
         Intent(this, LoginActivity::class.java).apply {
-            this.putExtra(EXTRA_USER, viewModel.getUser())
             setResult(Activity.RESULT_OK, this)
             if (!isFinishing) finish()
         }

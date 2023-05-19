@@ -3,57 +3,89 @@ package org.android.go.sopt.presentation.signup
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import org.android.go.sopt.domain.model.User
+import kotlinx.coroutines.launch
+import org.android.go.sopt.data.entity.remote.request.RequestPostSignUpDto
 import org.android.go.sopt.domain.repository.AuthRepository
-import org.android.go.sopt.util.UiState
-import org.android.go.sopt.util.UiState.Failure
-import org.android.go.sopt.util.UiState.Success
-import org.android.go.sopt.util.safeValueOf
-import org.android.go.sopt.util.type.MBTI.NONE
+import org.android.go.sopt.util.state.RemoteUiState
+import org.android.go.sopt.util.state.RemoteUiState.Error
+import org.android.go.sopt.util.state.RemoteUiState.Failure
+import org.android.go.sopt.util.state.RemoteUiState.Success
+import retrofit2.HttpException
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
 class SignupViewModel @Inject constructor(
     private val authRepository: AuthRepository,
 ) : ViewModel() {
-    private val _signupState = MutableLiveData<UiState>()
-    val signupState: LiveData<UiState>
+    private val _signupState = MutableLiveData<RemoteUiState>()
+    val signupState: LiveData<RemoteUiState>
         get() = _signupState
 
-    val id = MutableLiveData("")
-    val pwd = MutableLiveData("")
-    val name = MutableLiveData("")
-    val specialty = MutableLiveData("")
-    val mbti = MutableLiveData("")
+    val _id = MutableLiveData("")
+    private val id: String
+        get() = _id.value?.trim() ?: ""
 
-    private fun isValidId(id: String?) =
-        !id.isNullOrBlank() && id.length in MIN_ID_LENGTH..MAX_ID_LENGTH
+    val _pwd = MutableLiveData("")
+    private val pwd: String
+        get() = _pwd.value?.trim() ?: ""
 
-    private fun isValidPwd(pwd: String?) =
-        !pwd.isNullOrBlank() && pwd.length in MIN_PWD_LENGTH..MAX_PWD_LENGTH
+    val _name = MutableLiveData("")
+    private val name: String
+        get() = _name.value?.trim() ?: ""
+
+    val _specialty = MutableLiveData("")
+    private val specialty: String
+        get() = _specialty.value?.trim() ?: ""
+
+    private fun isValidId() = id.isNotBlank() && id.length in MIN_ID_LENGTH..MAX_ID_LENGTH
+
+    private fun isValidPwd() = pwd.isNotBlank() && pwd.length in MIN_PWD_LENGTH..MAX_PWD_LENGTH
+
+    private fun isValidName() = name.isNotBlank()
 
     fun signup() {
-        if (!isValidId(id.value)) {
+        if (!isValidId()) {
             _signupState.value = Failure(CODE_INVALID_ID)
             return
         }
-        if (!isValidPwd(pwd.value)) {
+
+        if (!isValidPwd()) {
             _signupState.value = Failure(CODE_INVALID_PWD)
             return
         }
-        authRepository.setSignedUpUser(getUser())
-        _signupState.value = Success
-    }
 
-    fun getUser(): User {
-        return User(
-            requireNotNull(id.value).trim(),
-            requireNotNull(pwd.value).trim(),
-            name.value?.trim(),
-            specialty.value?.trim(),
-            safeValueOf(mbti.value?.trim()?.uppercase(), NONE),
+        if (!isValidName()) {
+            _signupState.value = Failure(CODE_INVALID_NAME)
+            return
+        }
+
+        val requestPostSignUpDto = RequestPostSignUpDto(
+            id = id,
+            password = pwd,
+            name = name,
+            skill = specialty,
         )
+
+        viewModelScope.launch {
+            authRepository.postSignup(requestPostSignUpDto)
+                .onSuccess { response ->
+                    _signupState.value = Success
+                    Timber.d("POST SIGNUP SUCCESS : $response")
+                }
+                .onFailure { t ->
+                    if (t is HttpException) {
+                        when (t.code()) {
+                            CODE_INVALID_INPUT -> _signupState.value = Failure(CODE_INVALID_INPUT)
+                            CODE_DUPLICATED_INFO -> _signupState.value = Failure(CODE_DUPLICATED_INFO)
+                            else -> _signupState.value = Error
+                        }
+                        Timber.e("POST SIGNUP FAIL ${t.code()} : ${t.message()}")
+                    }
+                }
+        }
     }
 
     companion object {
@@ -64,5 +96,8 @@ class SignupViewModel @Inject constructor(
 
         const val CODE_INVALID_ID = 100
         const val CODE_INVALID_PWD = 101
+        const val CODE_INVALID_NAME = 102
+        const val CODE_INVALID_INPUT = 400
+        const val CODE_DUPLICATED_INFO = 409
     }
 }

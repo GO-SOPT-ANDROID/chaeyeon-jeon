@@ -8,9 +8,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.android.go.sopt.domain.model.Repo
 import org.android.go.sopt.domain.repository.RepoRepository
-import org.android.go.sopt.util.UiState
-import org.android.go.sopt.util.UiState.Failure
-import org.android.go.sopt.util.UiState.Success
+import org.android.go.sopt.util.state.LocalUiState
+import org.android.go.sopt.util.state.LocalUiState.Failure
+import org.android.go.sopt.util.state.LocalUiState.Success
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -22,8 +22,8 @@ class HomeViewModel @Inject constructor(
     val repoList: LiveData<List<Repo>>
         get() = _repoList
 
-    private val _getRepoListState = MutableLiveData<UiState>()
-    val getRepoListState: LiveData<UiState>
+    private val _getRepoListState = MutableLiveData<LocalUiState>()
+    val getRepoListState: LiveData<LocalUiState>
         get() = _getRepoListState
 
     init {

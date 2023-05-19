@@ -5,6 +5,7 @@
     <!-- common -->
     <string name="dummy">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
     <string name="wrong_input_msg">잘못된 입력입니다.</string>
+    <string name="unknown_error_msg">알 수 없는 오류가 발생했습니다.</string>
     <string name="binding_error_msg">Binding not initialized to reference the view.</string>
     <string name="view_type_error_msg">Unknown View Type : %d</string>
 
@@ -29,11 +30,14 @@
     <string name="signup_name_hint">이름을 입력하세요.</string>
     <string name="signup_invalid_id_msg">잘못된 아이디입니다.</string>
     <string name="signup_invalid_pwd_msg">잘못된 비밀번호입니다.</string>
+    <string name="signup_invalid_name_msg">잘못된 이름입니다.</string>
+    <string name="signup_duplicated_info_msg">이미 가입된 정보입니다.</string>
 
     <!-- main -->
     <string name="main_home">홈</string>
     <string name="main_gallery">갤러리</string>
     <string name="main_search">검색</string>
+    <string name="main_follower">팔로워</string>
     <string name="main_profile">프로필</string>
 
     <!-- home -->
@@ -46,6 +50,10 @@
 
     <!-- search -->
     <string name="search_fragment">SEARCH FRAGMENT</string>
+
+    <!-- follower -->
+    <string name="follower_header_title">Followers</string>
+    <string name="follower_get_follower_list_null_msg">팔로워가 존재하지 않습니다.</string>
 
     <!-- profile -->
     <string name="profile_name">이름 : %s</string>
