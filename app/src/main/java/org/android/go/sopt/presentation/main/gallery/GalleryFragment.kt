@@ -54,15 +54,15 @@ class GalleryFragment : BindingFragment<FragmentGalleryBinding>(R.layout.fragmen
         viewModel.postImageState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is Success -> {
-                    requireContext().showSnackbar(binding.root, "이미지가 전송되었습니다.")
+                    requireContext().showSnackbar(binding.root, getString(R.string.gallery_post_image_success_msg))
                 }
 
                 is Failure -> {
-                    requireContext().showSnackbar(binding.root, "이미지 전송에 실패하였습니다.")
+                    requireContext().showSnackbar(binding.root, getString(R.string.gallery_image_oversized_error_msg))
                 }
 
                 is Error -> {
-                    requireContext().showSnackbar(binding.root, "서버에 연결할 수 없습니다.")
+                    requireContext().showSnackbar(binding.root, getString(R.string.unknown_error_msg))
                 }
             }
         }

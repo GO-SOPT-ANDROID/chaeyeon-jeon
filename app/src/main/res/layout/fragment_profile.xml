@@ -62,8 +62,6 @@
             android:paddingVertical="16dp"
             android:text="@string/profile_logout_btn"
             android:textAppearance="?attr/textAppearanceHeadlineSmall"
-            android:textSize="18sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

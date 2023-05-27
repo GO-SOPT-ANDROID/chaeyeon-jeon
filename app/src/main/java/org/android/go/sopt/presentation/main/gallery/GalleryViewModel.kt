@@ -6,12 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import okhttp3.MultipartBody
 import org.android.go.sopt.domain.repository.ImageRepository
 import org.android.go.sopt.util.ContentUriRequestBody
 import org.android.go.sopt.util.state.RemoteUiState
 import org.android.go.sopt.util.state.RemoteUiState.Failure
 import org.android.go.sopt.util.state.RemoteUiState.Success
+import org.android.go.sopt.util.state.RemoteUiState.Error
 import retrofit2.HttpException
 import timber.log.Timber
 import javax.inject.Inject
@@ -37,15 +37,22 @@ class GalleryViewModel @Inject constructor(
             // TODO: null 처리
             imageRepository.uploadImage(imageFile.value!!.toFormData())
                 .onSuccess { response ->
-                    Timber.d("POST IMAGE SUCCESS : $response")
                     _postImageState.value = Success
+                    Timber.d("POST IMAGE SUCCESS : $response")
                 }
-                .onFailure { throwable ->
-                    if (throwable is HttpException) {
-                        Timber.e("POST IMAGE FAILURE(${throwable.code()}) : ${throwable.message()}")
-                        _postImageState.value = Failure(null)
+                .onFailure { t ->
+                    if (t is HttpException) {
+                        when (t.code()) {
+                            400 -> _postImageState.value = Failure(CODE_IMAGE_OVERSIZED)
+                            else -> _postImageState.value = Error
+                        }
                     }
+                    Timber.e("POST IMAGE FAILURE : $t")
                 }
         }
+    }
+
+    companion object {
+        private const val CODE_IMAGE_OVERSIZED = 400
     }
 }
