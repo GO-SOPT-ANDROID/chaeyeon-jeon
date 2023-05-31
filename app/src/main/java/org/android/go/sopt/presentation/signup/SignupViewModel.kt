@@ -1,9 +1,6 @@
 package org.android.go.sopt.presentation.signup
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.android.go.sopt.data.entity.remote.request.RequestPostSignUpDto
@@ -14,6 +11,7 @@ import org.android.go.sopt.util.state.RemoteUiState.Failure
 import org.android.go.sopt.util.state.RemoteUiState.Success
 import retrofit2.HttpException
 import timber.log.Timber
+import java.util.regex.Pattern
 import javax.inject.Inject
 
 @HiltViewModel
@@ -39,6 +37,17 @@ class SignupViewModel @Inject constructor(
     val _specialty = MutableLiveData("")
     private val specialty: String
         get() = _specialty.value?.trim() ?: ""
+
+    val isValidId = Transformations.map(_id) { checkId(it) }
+    val isValidPwd = Transformations.map(_pwd) { checkPwd(it) }
+
+    private fun checkId(id: String): Boolean {
+        return id.isEmpty() || Pattern.matches(EMAIL_PATTERN, id)
+    }
+
+    private fun checkPwd(pwd: String): Boolean {
+        return pwd.isEmpty() || Pattern.matches(PWD_PATTERN, pwd)
+    }
 
     private fun isValidId() = id.isNotBlank() && id.length in MIN_ID_LENGTH..MAX_ID_LENGTH
 
@@ -79,7 +88,10 @@ class SignupViewModel @Inject constructor(
                     if (t is HttpException) {
                         when (t.code()) {
                             CODE_INVALID_INPUT -> _signupState.value = Failure(CODE_INVALID_INPUT)
-                            CODE_DUPLICATED_INFO -> _signupState.value = Failure(CODE_DUPLICATED_INFO)
+                            CODE_DUPLICATED_INFO ->
+                                _signupState.value =
+                                    Failure(CODE_DUPLICATED_INFO)
+
                             else -> _signupState.value = Error
                         }
                         Timber.e("POST SIGNUP FAIL ${t.code()} : ${t.message()}")
@@ -99,5 +111,8 @@ class SignupViewModel @Inject constructor(
         const val CODE_INVALID_NAME = 102
         const val CODE_INVALID_INPUT = 400
         const val CODE_DUPLICATED_INFO = 409
+
+        private const val EMAIL_PATTERN = """^(?=.*[a-zA-Z])(?=.*\d).{6,10}$"""
+        private const val PWD_PATTERN = """^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()?]).{6,12}$"""
     }
 }
