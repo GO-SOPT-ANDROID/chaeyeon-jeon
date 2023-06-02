@@ -15,7 +15,6 @@
             android:id="@+id/iv_gallery"
             android:layout_width="200dp"
             android:layout_height="0dp"
-            android:contentDescription="뭔데 이게..."
             android:src="@drawable/img_main_profile"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"

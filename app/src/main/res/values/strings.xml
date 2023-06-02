@@ -65,12 +65,12 @@
     <string name="profile_specialty">특기 : %s</string>
     <string name="profile_mbti">MBTI : %s</string>
     <string name="profile_logout_btn">LOG OUT</string>
-    <string name="profile_logout_msg">회원 정보가 삭제되었습니다.</string>
+    <string name="profile_logout_msg">로그아웃되었습니다.</string>
     <string name="profile_img_description">프로필 이미지</string>
 
     <!-- logout dialog -->
     <string name="logout_dialog_question">로그아웃 하시겠습니까?</string>
-    <string name="logout_dialog_description">모든 회원 정보가 삭제됩니다.</string>
+    <string name="logout_dialog_description">자동 로그인이 해제됩니다.</string>
     <string name="logout_dialog_cancel">CANCEL</string>
     <string name="logout_dialog_logout">LOG OUT</string>
 </resources>
