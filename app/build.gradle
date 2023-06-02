@@ -52,7 +52,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:1.6.1"
 
     // material
-    implementation "com.google.android.material:material:1.8.0"
+    implementation "com.google.android.material:material:1.9.0"
 
     // constraint layout
     implementation "androidx.constraintlayout:constraintlayout:2.1.4"
@@ -107,4 +107,7 @@ dependencies {
 
     // splash screen
     implementation "androidx.core:core-splashscreen:1.0.1"
+
+    // lottie
+    implementation 'com.airbnb.android:lottie:3.7.1'
 }
