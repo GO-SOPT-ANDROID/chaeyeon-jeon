@@ -65,8 +65,7 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
     }
 
     private fun dismissLoadingDialog() {
-        if (!loadingDialog.isAdded) return
-        loadingDialog.dismiss()
+        if (loadingDialog.isAdded) loadingDialog.dismiss()
     }
 
     private fun navigateToLoginScreen() {

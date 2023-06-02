@@ -94,8 +94,7 @@ class FollowerFragment : BindingFragment<FragmentFollowerBinding>(R.layout.fragm
     }
 
     private fun dismissLoadingDialog() {
-        if (!loadingDialog.isAdded) return
-        loadingDialog.dismiss()
+        if (loadingDialog.isAdded) loadingDialog.dismiss()
     }
 
     override fun onDestroyView() {

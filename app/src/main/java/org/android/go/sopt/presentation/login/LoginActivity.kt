@@ -73,8 +73,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
     }
 
     private fun dismissLoadingDialog() {
-        if (!loadingDialog.isAdded) return
-        loadingDialog.dismiss()
+        if (loadingDialog.isAdded) loadingDialog.dismiss()
     }
 
     private fun navigateToMainScreen() {
