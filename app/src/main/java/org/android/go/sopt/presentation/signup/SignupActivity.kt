@@ -9,10 +9,7 @@ import org.android.go.sopt.R
 import org.android.go.sopt.databinding.ActivitySignupBinding
 import org.android.go.sopt.presentation.login.LoginActivity
 import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_DUPLICATED_INFO
-import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_INVALID_ID
 import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_INVALID_INPUT
-import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_INVALID_NAME
-import org.android.go.sopt.presentation.signup.SignupViewModel.Companion.CODE_INVALID_PWD
 import org.android.go.sopt.util.binding.BindingActivity
 import org.android.go.sopt.util.extension.showSnackbar
 import org.android.go.sopt.util.state.RemoteUiState.Error
@@ -36,21 +33,6 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
                 is Success -> navigateToLoginScreen()
                 is Failure -> {
                     when (state.code) {
-                        CODE_INVALID_ID -> showSnackbar(
-                            binding.root,
-                            getString(R.string.signup_invalid_id_msg),
-                        )
-
-                        CODE_INVALID_PWD -> showSnackbar(
-                            binding.root,
-                            getString(R.string.signup_invalid_pwd_msg),
-                        )
-
-                        CODE_INVALID_NAME -> showSnackbar(
-                            binding.root,
-                            getString(R.string.signup_invalid_name_msg),
-                        )
-
                         CODE_INVALID_INPUT -> showSnackbar(
                             binding.root,
                             getString(R.string.wrong_input_msg),

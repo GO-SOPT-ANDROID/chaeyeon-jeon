@@ -1,6 +1,9 @@
 package org.android.go.sopt.util.binding
 
+import android.widget.EditText
 import android.widget.ImageView
+import androidx.core.content.ContextCompat.getColorStateList
+import androidx.core.widget.TextViewCompat
 import androidx.databinding.BindingAdapter
 import coil.load
 import coil.transform.RoundedCornersTransformation
@@ -27,5 +30,21 @@ object BindingAdapter {
             fallback(R.drawable.ic_image_not_supported)
             transformations(RoundedCornersTransformation(1000f))
         }
+    }
+
+    @JvmStatic
+    @BindingAdapter("setDrawableTint")
+    fun EditText.setDrawableTint(isValid: Boolean) {
+        if (isValid) {
+            TextViewCompat.setCompoundDrawableTintList(
+                this,
+                getColorStateList(context, R.color.transparent),
+            )
+            return
+        }
+        TextViewCompat.setCompoundDrawableTintList(
+            this,
+            getColorStateList(context, R.color.coral_700),
+        )
     }
 }

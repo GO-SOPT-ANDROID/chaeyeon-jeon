@@ -15,8 +15,8 @@
         <item name="colorOnBackground">@color/black</item>
         <item name="colorSurface">@color/white</item>
         <item name="colorOnSurface">@color/black</item>
-        <item name="colorError">@color/mint_600</item>
-        <item name="colorOnError">@color/white</item>
+        <item name="colorError">@color/white</item>
+        <item name="colorOnError">@color/mint_600</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?colorPrimaryVariant</item>
         <!-- Remove font padding. -->

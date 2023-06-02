@@ -1,6 +1,10 @@
 package org.android.go.sopt.presentation.signup
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.map
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.android.go.sopt.data.entity.remote.request.RequestPostSignUpDto
@@ -38,39 +42,18 @@ class SignupViewModel @Inject constructor(
     private val specialty: String
         get() = _specialty.value?.trim() ?: ""
 
-    val isValidId = Transformations.map(_id) { checkId(it) }
-    val isValidPwd = Transformations.map(_pwd) { checkPwd(it) }
+    val isValidId: LiveData<Boolean> = _id.map { id -> checkId(id) }
+    val isValidPwd: LiveData<Boolean> = _pwd.map { pwd -> checkPwd(pwd) }
 
     private fun checkId(id: String): Boolean {
-        return id.isEmpty() || Pattern.matches(EMAIL_PATTERN, id)
+        return id.isEmpty() || Pattern.matches(REGEX_ID_PATTERN, id)
     }
 
     private fun checkPwd(pwd: String): Boolean {
-        return pwd.isEmpty() || Pattern.matches(PWD_PATTERN, pwd)
+        return pwd.isEmpty() || Pattern.matches(REGEX_PWD_PATTERN, pwd)
     }
 
-    private fun isValidId() = id.isNotBlank() && id.length in MIN_ID_LENGTH..MAX_ID_LENGTH
-
-    private fun isValidPwd() = pwd.isNotBlank() && pwd.length in MIN_PWD_LENGTH..MAX_PWD_LENGTH
-
-    private fun isValidName() = name.isNotBlank()
-
     fun signup() {
-        if (!isValidId()) {
-            _signupState.value = Failure(CODE_INVALID_ID)
-            return
-        }
-
-        if (!isValidPwd()) {
-            _signupState.value = Failure(CODE_INVALID_PWD)
-            return
-        }
-
-        if (!isValidName()) {
-            _signupState.value = Failure(CODE_INVALID_NAME)
-            return
-        }
-
         val requestPostSignUpDto = RequestPostSignUpDto(
             id = id,
             password = pwd,
@@ -101,18 +84,17 @@ class SignupViewModel @Inject constructor(
     }
 
     companion object {
-        const val MIN_ID_LENGTH = 6
+        private const val MIN_ID_LENGTH = 6
         const val MAX_ID_LENGTH = 10
-        const val MIN_PWD_LENGTH = 8
+        private const val MIN_PWD_LENGTH = 8
         const val MAX_PWD_LENGTH = 12
 
-        const val CODE_INVALID_ID = 100
-        const val CODE_INVALID_PWD = 101
-        const val CODE_INVALID_NAME = 102
         const val CODE_INVALID_INPUT = 400
         const val CODE_DUPLICATED_INFO = 409
 
-        private const val EMAIL_PATTERN = """^(?=.*[a-zA-Z])(?=.*\d).{6,10}$"""
-        private const val PWD_PATTERN = """^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()?]).{6,12}$"""
+        private const val REGEX_ID_PATTERN =
+            """^(?=.*[a-zA-Z])(?=.*\d).{$MIN_ID_LENGTH,$MAX_ID_LENGTH}$"""
+        private const val REGEX_PWD_PATTERN =
+            """^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()?]).{$MIN_PWD_LENGTH,$MAX_PWD_LENGTH}$"""
     }
 }

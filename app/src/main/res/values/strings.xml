@@ -32,6 +32,7 @@
     <string name="signup_invalid_pwd_msg">잘못된 비밀번호입니다.</string>
     <string name="signup_invalid_name_msg">잘못된 이름입니다.</string>
     <string name="signup_duplicated_info_msg">이미 가입된 정보입니다.</string>
+    <string name="signup_asterisk_label">*</string>
 
     <!-- main -->
     <string name="main_home">홈</string>
