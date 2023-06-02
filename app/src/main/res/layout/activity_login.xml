@@ -35,7 +35,7 @@
             android:layout_marginHorizontal="40dp"
             android:layout_marginTop="50dp"
             android:text="@string/login_id_label"
-            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:textAppearance="?textAppearanceHeadlineSmall"
             android:textColor="?colorOnBackground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_login_welcome_msg" />
@@ -63,7 +63,7 @@
             android:layout_marginHorizontal="40dp"
             android:layout_marginTop="40dp"
             android:text="@string/login_pwd_label"
-            android:textAppearance="@style/TextAppearance.GoSopt.HeadlineSmall"
+            android:textAppearance="?textAppearanceHeadlineSmall"
             android:textColor="?colorOnBackground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_login_id" />
@@ -91,7 +91,7 @@
             android:onClick="@{()->vm.login()}"
             android:paddingVertical="16dp"
             android:text="@string/login_login_btn"
-            android:textAppearance="?attr/textAppearanceHeadlineSmall" />
+            android:textAppearance="?textAppearanceHeadlineSmall" />
 
         <Button
             android:id="@+id/btn_login_signup"
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
             android:text="@string/login_signup_btn"
-            android:textAppearance="?attr/textAppearanceHeadlineSmall" />
+            android:textAppearance="?textAppearanceHeadlineSmall" />
 
         <androidx.constraintlayout.helper.widget.Flow
             android:id="@+id/flow_login_sign_buttons"

@@ -36,7 +36,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="@{data.name}"
-            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:textAppearance="?textAppearanceHeadlineSmall"
             android:textColor="?colorOnSurface"
             app:layout_constraintEnd_toEndOf="@id/flow_repo_description"
             app:layout_constraintStart_toStartOf="@id/flow_repo_description"

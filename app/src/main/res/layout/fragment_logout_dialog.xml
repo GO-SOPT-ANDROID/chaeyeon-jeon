@@ -57,7 +57,7 @@
                 android:paddingHorizontal="24dp"
                 android:paddingVertical="18dp"
                 android:text="@string/logout_dialog_cancel"
-                android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                android:textAppearance="?textAppearanceHeadlineSmall"
                 android:textColor="@color/gray_500" />
 
             <Button
@@ -67,7 +67,7 @@
                 android:paddingHorizontal="24dp"
                 android:paddingVertical="18dp"
                 android:text="@string/logout_dialog_logout"
-                android:textAppearance="?attr/textAppearanceHeadlineSmall" />
+                android:textAppearance="?textAppearanceHeadlineSmall" />
 
             <androidx.constraintlayout.helper.widget.Flow
                 android:id="@+id/flow_logout_dialog_btn"
