@@ -33,6 +33,8 @@
     <string name="signup_invalid_name_msg">잘못된 이름입니다.</string>
     <string name="signup_duplicated_info_msg">이미 가입된 정보입니다.</string>
     <string name="signup_asterisk_label">*</string>
+    <string name="signup_id_alert">6~10자로 영문과 숫자를 조합하여 사용할 수 있어요.</string>
+    <string name="signup_pwd_alert">6~12자로 영문과 숫자, 특수문자를 조합하여 사용할 수 있어요.</string>
 
     <!-- main -->
     <string name="main_home">홈</string>

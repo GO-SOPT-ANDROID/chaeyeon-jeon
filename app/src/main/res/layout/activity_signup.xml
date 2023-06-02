@@ -9,6 +9,8 @@
         <variable
             name="vm"
             type="org.android.go.sopt.presentation.signup.SignupViewModel" />
+
+        <import type="android.view.View" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -80,16 +82,22 @@
                     android:id="@+id/tv_signup_id_alert"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?textAppearanceCaptionMedium"
+                    android:layout_marginTop="6dp"
+                    android:paddingHorizontal="6dp"
+                    android:text="@string/signup_id_alert"
+                    android:textAppearance="?textAppearanceCaption"
+                    android:textColor="?colorSecondary"
+                    android:visibility="@{vm.isValidId ? View.GONE : View.VISIBLE}"
                     app:layout_constraintEnd_toEndOf="@id/et_signup_id"
                     app:layout_constraintStart_toStartOf="@id/et_signup_id"
-                    app:layout_constraintTop_toBottomOf="@id/et_signup_id" />
+                    app:layout_constraintTop_toBottomOf="@id/et_signup_id"
+                    tools:visibility="gone" />
 
                 <TextView
                     android:id="@+id/tv_signup_pwd_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="34dp"
                     android:text="@string/login_pwd_label"
                     android:textAppearance="?textAppearanceHeadlineSmall"
                     android:textColor="?colorOnBackground"
@@ -131,10 +139,24 @@
                     tools:drawableTint="?colorSecondary" />
 
                 <TextView
+                    android:id="@+id/tv_signup_pwd_alert"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:paddingHorizontal="6dp"
+                    android:text="@string/signup_pwd_alert"
+                    android:textAppearance="?textAppearanceCaption"
+                    android:textColor="?colorSecondary"
+                    android:visibility="@{vm.isValidPwd ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintEnd_toEndOf="@id/et_signup_pwd"
+                    app:layout_constraintStart_toStartOf="@id/et_signup_pwd"
+                    app:layout_constraintTop_toBottomOf="@id/et_signup_pwd" />
+
+                <TextView
                     android:id="@+id/tv_signup_name_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="34dp"
                     android:text="@string/signup_name_label"
                     android:textAppearance="?textAppearanceHeadlineSmall"
                     android:textColor="?colorOnBackground"
@@ -172,7 +194,7 @@
                     android:id="@+id/tv_signup_specialty_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="34dp"
                     android:text="@string/signup_specialty_label"
                     android:textAppearance="?textAppearanceHeadlineSmall"
                     android:textColor="?colorOnBackground"
