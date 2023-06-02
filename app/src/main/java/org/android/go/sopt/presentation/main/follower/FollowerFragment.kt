@@ -52,8 +52,15 @@ class FollowerFragment : BindingFragment<FragmentFollowerBinding>(R.layout.fragm
         viewModel.getFollowerListState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is Success -> followerAdapter?.submitList(viewModel.followerList)
-                is Failure -> requireContext().showSnackbar(binding.root, getString(R.string.follower_get_follower_list_null_msg))
-                is Error -> requireContext().showSnackbar(binding.root, getString(R.string.unknown_error_msg))
+                is Failure -> requireContext().showSnackbar(
+                    binding.root,
+                    getString(R.string.follower_get_follower_list_null_msg),
+                )
+
+                is Error -> requireContext().showSnackbar(
+                    binding.root,
+                    getString(R.string.unknown_error_msg),
+                )
             }
         }
     }
