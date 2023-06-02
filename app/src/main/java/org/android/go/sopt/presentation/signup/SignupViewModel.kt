@@ -12,6 +12,7 @@ import org.android.go.sopt.domain.repository.AuthRepository
 import org.android.go.sopt.util.state.RemoteUiState
 import org.android.go.sopt.util.state.RemoteUiState.Error
 import org.android.go.sopt.util.state.RemoteUiState.Failure
+import org.android.go.sopt.util.state.RemoteUiState.Loading
 import org.android.go.sopt.util.state.RemoteUiState.Success
 import retrofit2.HttpException
 import timber.log.Timber
@@ -54,14 +55,16 @@ class SignupViewModel @Inject constructor(
     }
 
     fun signup() {
-        val requestPostSignUpDto = RequestPostSignUpDto(
-            id = id,
-            password = pwd,
-            name = name,
-            skill = specialty,
-        )
-
         viewModelScope.launch {
+            _signupState.value = Loading
+
+            val requestPostSignUpDto = RequestPostSignUpDto(
+                id = id,
+                password = pwd,
+                name = name,
+                skill = specialty,
+            )
+
             authRepository.postSignup(requestPostSignUpDto)
                 .onSuccess { response ->
                     _signupState.value = Success

@@ -10,6 +10,7 @@ import org.android.go.sopt.domain.model.Repo
 import org.android.go.sopt.domain.repository.RepoRepository
 import org.android.go.sopt.util.state.LocalUiState
 import org.android.go.sopt.util.state.LocalUiState.Failure
+import org.android.go.sopt.util.state.LocalUiState.Loading
 import org.android.go.sopt.util.state.LocalUiState.Success
 import timber.log.Timber
 import javax.inject.Inject
@@ -32,9 +33,10 @@ class HomeViewModel @Inject constructor(
 
     private fun getRepoList() {
         viewModelScope.launch {
+            _getRepoListState.value = Loading
             repoRepository.getRepoList()
                 .onSuccess { repoList ->
-                    // TODO : repoList null 처리
+                    // TODO: repoList null 처리
                     _repoList.value = repoList
                     _getRepoListState.value = Success
                     Timber.d("GET REPO LIST SUCCESS : $repoList")

@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import org.android.go.sopt.R
 import org.android.go.sopt.databinding.ActivityLoginBinding
+import org.android.go.sopt.presentation.dialog.LoadingDialogFragment
 import org.android.go.sopt.presentation.main.MainActivity
 import org.android.go.sopt.presentation.signup.SignupActivity
 import org.android.go.sopt.util.binding.BindingActivity
@@ -16,11 +17,14 @@ import org.android.go.sopt.util.extension.showSnackbar
 import org.android.go.sopt.util.extension.showToast
 import org.android.go.sopt.util.state.RemoteUiState.Error
 import org.android.go.sopt.util.state.RemoteUiState.Failure
+import org.android.go.sopt.util.state.RemoteUiState.Loading
 import org.android.go.sopt.util.state.RemoteUiState.Success
 
 @AndroidEntryPoint
 class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_login) {
     private val viewModel by viewModels<LoginViewModel>()
+
+    private lateinit var loadingDialog: LoadingDialogFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,9 +50,25 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
     private fun setupLoginState() {
         viewModel.loginState.observe(this) { state ->
             when (state) {
-                is Success -> navigateToMainScreen()
-                is Failure -> showSnackbar(binding.root, getString(R.string.wrong_input_msg))
-                is Error -> showSnackbar(binding.root, getString(R.string.unknown_error_msg))
+                is Loading -> {
+                    loadingDialog = LoadingDialogFragment()
+                    loadingDialog.show(supportFragmentManager, TAG_LOADING_DIALOG)
+                }
+
+                is Success -> {
+                    if (::loadingDialog.isInitialized) loadingDialog.dismiss()
+                    navigateToMainScreen()
+                }
+
+                is Failure -> {
+                    loadingDialog.dismiss()
+                    showSnackbar(binding.root, getString(R.string.wrong_input_msg))
+                }
+
+                is Error -> {
+                    loadingDialog.dismiss()
+                    showSnackbar(binding.root, getString(R.string.unknown_error_msg))
+                }
             }
         }
     }
@@ -59,5 +79,9 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(this)
         }
+    }
+
+    companion object {
+        const val TAG_LOADING_DIALOG = "LOADING_DIALOG"
     }
 }

@@ -12,6 +12,7 @@ import org.android.go.sopt.domain.repository.AuthRepository
 import org.android.go.sopt.util.state.RemoteUiState
 import org.android.go.sopt.util.state.RemoteUiState.Error
 import org.android.go.sopt.util.state.RemoteUiState.Failure
+import org.android.go.sopt.util.state.RemoteUiState.Loading
 import org.android.go.sopt.util.state.RemoteUiState.Success
 import retrofit2.HttpException
 import timber.log.Timber
@@ -43,19 +44,19 @@ class LoginViewModel @Inject constructor(
         }
     }
 
-    private fun isValidInput() = id.isNotBlank() && pwd.isNotBlank()
-
     fun login() {
-        if (!isValidInput()) {
-            _loginState.value = Failure(null)
-            return
-        }
-
-        val requestPostSignInDto = RequestPostSignInDto(
-            id = id,
-            password = pwd,
-        )
         viewModelScope.launch {
+            _loginState.value = Loading
+
+            if (!isValidInput()) {
+                _loginState.value = Failure(CODE_INVALID_INPUT)
+                return@launch
+            }
+
+            val requestPostSignInDto = RequestPostSignInDto(
+                id = id,
+                password = pwd,
+            )
             authRepository.postSignin(requestPostSignInDto)
                 .onSuccess { response ->
                     authRepository.setSignedUpUser(
@@ -81,6 +82,8 @@ class LoginViewModel @Inject constructor(
                 }
         }
     }
+
+    private fun isValidInput() = id.isNotBlank() && pwd.isNotBlank()
 
     companion object {
         const val CODE_INVALID_INPUT = 400
