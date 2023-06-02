@@ -22,8 +22,13 @@ import org.android.go.sopt.util.state.RemoteUiState.Success
 class FollowerFragment : BindingFragment<FragmentFollowerBinding>(R.layout.fragment_follower) {
     private val viewModel by viewModels<FollowerViewModel>()
 
-    private var followerAdapter: FollowerAdapter? = null
-    private var loadingDialog: LoadingDialogFragment? = null
+    private var _followerAdapter: FollowerAdapter? = null
+    private val followerAdapter
+        get() = requireNotNull(_followerAdapter) { getString(R.string.adapter_not_initialized_error_msg) }
+
+    private var _loadingDialog: LoadingDialogFragment? = null
+    private val loadingDialog
+        get() = requireNotNull(_loadingDialog) { getString(R.string.dialog_not_initialized_error_msg) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,19 +41,19 @@ class FollowerFragment : BindingFragment<FragmentFollowerBinding>(R.layout.fragm
     }
 
     private fun initFollowerAdapter() {
-        followerAdapter = FollowerAdapter()
+        _followerAdapter = FollowerAdapter()
         binding.rvFollower.adapter = followerAdapter
     }
 
     private fun initLoadingDialogFragment() {
-        loadingDialog = LoadingDialogFragment()
+        _loadingDialog = LoadingDialogFragment()
     }
 
     private fun initRecyclerViewLayoutManager() {
         val layoutManager = GridLayoutManager(activity, 2)
         layoutManager.spanSizeLookup = object : SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
-                return when (followerAdapter?.getItemViewType(position)) {
+                return when (followerAdapter.getItemViewType(position)) {
                     VIEW_TYPE_HEADER -> 2
                     else -> 1
                 }
@@ -60,14 +65,17 @@ class FollowerFragment : BindingFragment<FragmentFollowerBinding>(R.layout.fragm
     private fun setupGetFollowerListState() {
         viewModel.getFollowerListState.observe(viewLifecycleOwner) { state ->
             when (state) {
-                is Loading -> loadingDialog?.show(parentFragmentManager, TAG_LOADING_DIALOG)
+                is Loading -> {
+                    loadingDialog.show(parentFragmentManager, TAG_LOADING_DIALOG)
+                }
+
                 is Success -> {
-                    loadingDialog?.dismiss()
-                    followerAdapter?.submitList(viewModel.followerList)
+                    dismissLoadingDialog()
+                    followerAdapter.submitList(viewModel.followerList)
                 }
 
                 is Failure -> {
-                    loadingDialog?.dismiss()
+                    dismissLoadingDialog()
                     requireContext().showSnackbar(
                         binding.root,
                         getString(R.string.follower_get_follower_list_null_msg),
@@ -75,7 +83,7 @@ class FollowerFragment : BindingFragment<FragmentFollowerBinding>(R.layout.fragm
                 }
 
                 is Error -> {
-                    loadingDialog?.dismiss()
+                    dismissLoadingDialog()
                     requireContext().showSnackbar(
                         binding.root,
                         getString(R.string.unknown_error_msg),
@@ -85,10 +93,15 @@ class FollowerFragment : BindingFragment<FragmentFollowerBinding>(R.layout.fragm
         }
     }
 
+    private fun dismissLoadingDialog() {
+        if (!loadingDialog.isAdded) return
+        loadingDialog.dismiss()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
-        followerAdapter = null
-        loadingDialog = null
+        _followerAdapter = null
+        _loadingDialog = null
     }
 
     companion object {

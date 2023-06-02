@@ -37,12 +37,12 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
             when (state) {
                 is Loading -> loadingDialog.show(supportFragmentManager, TAG_LOADING_DIALOG)
                 is Success -> {
-                    loadingDialog.dismiss()
+                    dismissLoadingDialog()
                     navigateToLoginScreen()
                 }
 
                 is Failure -> {
-                    loadingDialog.dismiss()
+                    dismissLoadingDialog()
                     when (state.code) {
                         CODE_INVALID_INPUT -> showSnackbar(
                             binding.root,
@@ -57,11 +57,16 @@ class SignupActivity : BindingActivity<ActivitySignupBinding>(R.layout.activity_
                 }
 
                 is Error -> {
-                    loadingDialog.dismiss()
+                    dismissLoadingDialog()
                     showSnackbar(binding.root, getString(R.string.unknown_error_msg))
                 }
             }
         }
+    }
+
+    private fun dismissLoadingDialog() {
+        if (!loadingDialog.isAdded) return
+        loadingDialog.dismiss()
     }
 
     private fun navigateToLoginScreen() {

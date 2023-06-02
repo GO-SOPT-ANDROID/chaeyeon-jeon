@@ -9,6 +9,7 @@
     <string name="binding_error_msg">Binding not initialized to reference the view.</string>
     <string name="view_type_error_msg">Unknown View Type : %d</string>
     <string name="dialog_not_initialized_error_msg">Dialog not initialized</string>
+    <string name="adapter_not_initialized_error_msg">Adapter not initialized</string>
 
     <!-- login -->
     <string name="login_welcome_msg">Welcome to GO Android!</string>

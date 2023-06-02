@@ -20,7 +20,10 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private val viewModel by viewModels<HomeViewModel>()
 
     private var repoHeaderAdapter: RepoHeaderAdapter? = null
-    private var repoItemAdapter: RepoItemAdapter? = null
+
+    private var _repoItemAdapter: RepoItemAdapter? = null
+    private val repoItemAdapter
+        get() = requireNotNull(_repoItemAdapter) { getString(R.string.adapter_not_initialized_error_msg) }
 
     private var _loadingDialog: LoadingDialogFragment? = null
     private val loadingDialog
@@ -36,7 +39,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 
     private fun initRepoAdapter() {
         repoHeaderAdapter = RepoHeaderAdapter()
-        repoItemAdapter = RepoItemAdapter()
+        _repoItemAdapter = RepoItemAdapter()
         binding.rvHomeRepo.adapter = ConcatAdapter(repoHeaderAdapter, repoItemAdapter)
     }
 
@@ -49,12 +52,12 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             when (state) {
                 is Loading -> loadingDialog.show(parentFragmentManager, TAG_LOADING_DIALOG)
                 is Success -> {
-                    if (loadingDialog.isAdded) loadingDialog.dismiss()
-                    repoItemAdapter?.submitList(viewModel.repoList.value)
+                    dismissLoadingDialog()
+                    repoItemAdapter.submitList(viewModel.repoList.value)
                 }
 
                 is Failure -> {
-                    if (loadingDialog.isAdded) loadingDialog.dismiss()
+                    dismissLoadingDialog()
                     requireContext().showSnackbar(
                         binding.root,
                         getString(R.string.home_get_repo_list_fail_msg),
@@ -64,10 +67,15 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         }
     }
 
+    private fun dismissLoadingDialog() {
+        if (!loadingDialog.isAdded) return
+        loadingDialog.dismiss()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         repoHeaderAdapter = null
-        repoItemAdapter = null
+        _repoItemAdapter = null
         _loadingDialog = null
     }
 

@@ -24,7 +24,7 @@ import org.android.go.sopt.util.state.RemoteUiState.Success
 class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_login) {
     private val viewModel by viewModels<LoginViewModel>()
 
-    private lateinit var loadingDialog: LoadingDialogFragment
+    private val loadingDialog by lazy { LoadingDialogFragment() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,26 +51,30 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>(R.layout.activity_lo
         viewModel.loginState.observe(this) { state ->
             when (state) {
                 is Loading -> {
-                    loadingDialog = LoadingDialogFragment()
                     loadingDialog.show(supportFragmentManager, TAG_LOADING_DIALOG)
                 }
 
                 is Success -> {
-                    if (::loadingDialog.isInitialized) loadingDialog.dismiss()
+                    dismissLoadingDialog()
                     navigateToMainScreen()
                 }
 
                 is Failure -> {
-                    loadingDialog.dismiss()
+                    dismissLoadingDialog()
                     showSnackbar(binding.root, getString(R.string.wrong_input_msg))
                 }
 
                 is Error -> {
-                    loadingDialog.dismiss()
+                    dismissLoadingDialog()
                     showSnackbar(binding.root, getString(R.string.unknown_error_msg))
                 }
             }
         }
+    }
+
+    private fun dismissLoadingDialog() {
+        if (!loadingDialog.isAdded) return
+        loadingDialog.dismiss()
     }
 
     private fun navigateToMainScreen() {
