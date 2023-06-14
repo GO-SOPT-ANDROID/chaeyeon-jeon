@@ -6,9 +6,10 @@ import org.android.go.sopt.R
 import org.android.go.sopt.databinding.FragmentGalleryBinding
 import org.android.go.sopt.util.binding.BindingFragment
 
-
 class GalleryFragment : BindingFragment<FragmentGalleryBinding>(R.layout.fragment_gallery) {
-    private var imageAdapter: ImageAdapter? = null
+    private var _imageAdapter: ImageAdapter? = null
+    private val imageAdapter
+        get() = requireNotNull(_imageAdapter) { getString(R.string.adapter_not_initialized_error_msg) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -17,9 +18,9 @@ class GalleryFragment : BindingFragment<FragmentGalleryBinding>(R.layout.fragmen
     }
 
     private fun initImageAdapter() {
-        imageAdapter = ImageAdapter()
+        _imageAdapter = ImageAdapter()
         binding.vpGallery.adapter = imageAdapter
-        imageAdapter?.submitList(
+        imageAdapter.submitList(
             listOf(
                 R.drawable.img_main_profile,
                 R.drawable.img_main_profile,
@@ -30,7 +31,7 @@ class GalleryFragment : BindingFragment<FragmentGalleryBinding>(R.layout.fragmen
 
     override fun onDestroyView() {
         super.onDestroyView()
-        imageAdapter = null
+        _imageAdapter = null
     }
 
     companion object {

@@ -8,6 +8,8 @@
     <string name="unknown_error_msg">알 수 없는 오류가 발생했습니다.</string>
     <string name="binding_error_msg">Binding not initialized to reference the view.</string>
     <string name="view_type_error_msg">Unknown View Type : %d</string>
+    <string name="dialog_not_initialized_error_msg">Dialog not initialized</string>
+    <string name="adapter_not_initialized_error_msg">Adapter not initialized</string>
 
     <!-- login -->
     <string name="login_welcome_msg">Welcome to GO Android!</string>
@@ -32,6 +34,9 @@
     <string name="signup_invalid_pwd_msg">잘못된 비밀번호입니다.</string>
     <string name="signup_invalid_name_msg">잘못된 이름입니다.</string>
     <string name="signup_duplicated_info_msg">이미 가입된 정보입니다.</string>
+    <string name="signup_asterisk_label">*</string>
+    <string name="signup_id_alert">6~10자의 영문과 숫자만 사용 가능합니다.</string>
+    <string name="signup_pwd_alert">6~12자의 영문과 숫자, 특수기호만 사용 가능합니다.</string>
 
     <!-- main -->
     <string name="main_home">홈</string>
@@ -60,12 +65,12 @@
     <string name="profile_specialty">특기 : %s</string>
     <string name="profile_mbti">MBTI : %s</string>
     <string name="profile_logout_btn">LOG OUT</string>
-    <string name="profile_logout_msg">회원 정보가 삭제되었습니다.</string>
+    <string name="profile_logout_msg">로그아웃되었습니다.</string>
     <string name="profile_img_description">프로필 이미지</string>
 
     <!-- logout dialog -->
     <string name="logout_dialog_question">로그아웃 하시겠습니까?</string>
-    <string name="logout_dialog_description">모든 회원 정보가 삭제됩니다.</string>
+    <string name="logout_dialog_description">자동 로그인이 해제됩니다.</string>
     <string name="logout_dialog_cancel">CANCEL</string>
     <string name="logout_dialog_logout">LOG OUT</string>
 </resources>
