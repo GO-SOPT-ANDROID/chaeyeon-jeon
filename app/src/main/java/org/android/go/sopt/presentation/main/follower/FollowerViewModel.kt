@@ -11,6 +11,7 @@ import org.android.go.sopt.domain.repository.FollowerRepository
 import org.android.go.sopt.util.state.RemoteUiState
 import org.android.go.sopt.util.state.RemoteUiState.Error
 import org.android.go.sopt.util.state.RemoteUiState.Failure
+import org.android.go.sopt.util.state.RemoteUiState.Loading
 import org.android.go.sopt.util.state.RemoteUiState.Success
 import retrofit2.HttpException
 import timber.log.Timber
@@ -33,8 +34,9 @@ class FollowerViewModel @Inject constructor(
     }
 
     private fun getFollowerList() {
-        Timber.d("get follower list 시작")
         viewModelScope.launch {
+            _getFollowerListState.value = Loading
+            // TODO: 팔로워 페이징 구현
             followerRepository.getFollowerList(1)
                 .onSuccess { response ->
                     if (response.isEmpty()) {

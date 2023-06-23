@@ -15,6 +15,7 @@ import org.android.go.sopt.util.ContentUriRequestBody
 import org.android.go.sopt.util.binding.BindingFragment
 import org.android.go.sopt.util.extension.setOnSingleClickListener
 import org.android.go.sopt.util.extension.showSnackbar
+import org.android.go.sopt.util.state.RemoteUiState
 import org.android.go.sopt.util.state.RemoteUiState.Error
 import org.android.go.sopt.util.state.RemoteUiState.Failure
 import org.android.go.sopt.util.state.RemoteUiState.Success
@@ -53,16 +54,29 @@ class GalleryFragment : BindingFragment<FragmentGalleryBinding>(R.layout.fragmen
     private fun setupPostImageState() {
         viewModel.postImageState.observe(viewLifecycleOwner) { state ->
             when (state) {
+                is RemoteUiState.Loading -> {
+                    // TODO: 로딩 처리
+                }
+
                 is Success -> {
-                    requireContext().showSnackbar(binding.root, getString(R.string.gallery_post_image_success_msg))
+                    requireContext().showSnackbar(
+                        binding.root,
+                        getString(R.string.gallery_post_image_success_msg),
+                    )
                 }
 
                 is Failure -> {
-                    requireContext().showSnackbar(binding.root, getString(R.string.gallery_image_oversized_error_msg))
+                    requireContext().showSnackbar(
+                        binding.root,
+                        getString(R.string.gallery_image_oversized_error_msg),
+                    )
                 }
 
                 is Error -> {
-                    requireContext().showSnackbar(binding.root, getString(R.string.unknown_error_msg))
+                    requireContext().showSnackbar(
+                        binding.root,
+                        getString(R.string.unknown_error_msg),
+                    )
                 }
             }
         }
