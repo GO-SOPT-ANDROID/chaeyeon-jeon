@@ -6,23 +6,70 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="org.android.go.sopt.presentation.main.gallery.GalleryViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_gallery"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/vp_gallery"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginHorizontal="50dp"
-            android:layout_marginVertical="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <LinearLayout
+            android:id="@+id/layout_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
+            <ImageView
+                android:id="@+id/iv_gallery_first"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@color/gray_200" />
+
+            <ImageView
+                android:id="@+id/iv_gallery_second"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="14dp"
+                android:background="@color/gray_200" />
+
+            <ImageView
+                android:id="@+id/iv_gallery_third"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@color/gray_200" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_gallery_send"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="12dp"
+            android:onClick="@{()->vm.postImage()}"
+            android:paddingVertical="16dp"
+            android:text="@string/gallery_send_image"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            app:layout_constraintBottom_toTopOf="@id/btn_gallery_select"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_gallery_select"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="50dp"
+            android:paddingVertical="16dp"
+            android:text="@string/gallery_select_image"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

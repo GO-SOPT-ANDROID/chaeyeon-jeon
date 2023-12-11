@@ -6,9 +6,11 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import org.android.go.sopt.data.repository.AuthRepositoryImpl
 import org.android.go.sopt.data.repository.FollowerRepositoryImpl
+import org.android.go.sopt.data.repository.ImageRepositoryImpl
 import org.android.go.sopt.data.repository.RepoRepositoryImpl
 import org.android.go.sopt.domain.repository.AuthRepository
 import org.android.go.sopt.domain.repository.FollowerRepository
+import org.android.go.sopt.domain.repository.ImageRepository
 import org.android.go.sopt.domain.repository.RepoRepository
 import javax.inject.Singleton
 
@@ -32,4 +34,10 @@ abstract class RepositoryModule {
     abstract fun bindsFollowerRepository(
         followerRepositoryImpl: FollowerRepositoryImpl,
     ): FollowerRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindsImageRepository(
+        imageRepositoryImpl: ImageRepositoryImpl,
+    ): ImageRepository
 }

@@ -51,7 +51,8 @@
     <string name="home_repo_img_description">리포지토리 %s 이미지</string>
 
     <!-- gallery -->
-    <string name="gallery_fragment">GALLERY FRAGMENT</string>
+    <string name="gallery_image_oversized_error_msg">이미지 크기 제한을 초과하였습니다.</string>
+    <string name="gallery_post_image_success_msg">이미지가 전송되었습니다.</string>
 
     <!-- search -->
     <string name="search_fragment">SEARCH FRAGMENT</string>
@@ -73,4 +74,6 @@
     <string name="logout_dialog_description">자동 로그인이 해제됩니다.</string>
     <string name="logout_dialog_cancel">CANCEL</string>
     <string name="logout_dialog_logout">LOG OUT</string>
+    <string name="gallery_send_image">이미지 전송하기</string>
+    <string name="gallery_select_image">이미지 선택하기</string>
 </resources>
